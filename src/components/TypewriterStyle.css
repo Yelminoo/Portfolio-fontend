@@ -1,0 +1,30 @@
+/* .svg-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+svg {
+  overflow: hidden;
+  width: 50%;
+}
+
+.svg-image img {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+} */
+
+.svg-image.clip img {
+  clip-path: path(
+    "M67.5,-21.5C76.2,4.8,64.1,38.2,43.5,51.2C22.8,64.1,-6.4,56.6,-28.3,40.4C-50.2,24.1,-64.8,-0.9,-58.9,-23.4C-53,-45.9,-26.5,-65.9,1.5,-66.4C29.4,-66.9,58.8,-47.8,67.5,-21.5Z"
+  );
+}

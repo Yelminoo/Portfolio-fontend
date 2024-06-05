@@ -1,0 +1,3 @@
+.transition-width {
+  transition: width 0.5s ease-in-out; /* Adjust the transition duration and timing function as needed */
+}

@@ -1,0 +1,223 @@
+body {
+  margin: 0;
+  /* background: radial-gradient(
+    circle,
+    rgba(61, 158, 247, 1) 0%,
+    rgba(61, 158, 247, 1) 0%,
+    rgba(149, 202, 250, 1) 35%,
+    rgba(254, 254, 254, 1) 71%
+  ); */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #6200ea;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+button .ripple-effect,
+button .slow-ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+button .ripple-effect {
+  background: rgba(97, 149, 238, 0.5);
+  animation: ripple-animation 0.6s linear;
+}
+
+button .slow-ripple-effect {
+  background: rgba(88, 87, 77, 0.934);
+  animation: slow-ripple-animation 1.5s linear;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes slow-ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0.5;
+  }
+}
+.scroll-watcher {
+  height: 5px;
+  border-radius: 2rem;
+  position: fixed;
+
+  z-index: 9;
+  background: linear-gradient(
+    99deg,
+    rgba(255, 255, 255, 1) 12%,
+    rgba(132, 243, 112, 1) 58%,
+    rgba(35, 237, 112, 1) 77%
+  );
+  width: 100%;
+  scale: 0 1;
+  animation: scroll-watcher linear;
+  transform-origin: left;
+  animation-timeline: scroll();
+}
+
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
+}
+
+.nav-bar {
+  animation: fade-in-nav linear;
+  animation-timeline: view();
+  animation-range: exit;
+}
+
+@keyframes fade-in-nav {
+  to {
+    opacity: 0;
+  }
+}
+
+.showcase-box {
+  animation: slide-in linear;
+  animation-timeline: view();
+  animation-range: entry -10%;
+}
+
+.skill-card {
+  animation: fade-in linear;
+  animation-timeline: view();
+  animation-range: entry -50%;
+}
+
+@keyframes fade-in {
+  from {
+    scale: 0.5;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.header-image {
+  transform-origin: bottom;
+
+  opacity: 1;
+  scale: 1;
+  animation: header-animation linear;
+  animation-timeline: view();
+  animation-range: 0px exit;
+}
+
+@keyframes header-animation {
+  25% {
+    opacity: 1;
+  }
+  85% {
+    scale: 1.5;
+    opacity: 1;
+  }
+  100% {
+    scale: 2;
+    opacity: 0;
+  }
+}
+
+.matrix-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -1;
+}
+
+.floating-ui {
+  position: fixed;
+  bottom: 20px; /* Margin from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center alignment */
+  display: flex;
+  gap: 10px;
+  opacity: 1; /* Hidden by default */
+  transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+.drop-container {
+  position: absolute;
+}
+
+.drop {
+  display: block;
+  width: 2px;
+  height: 10px;
+  /* background-color: lime; */
+  animation: fall linear infinite forwards;
+  font-family: "Arial", sans-serif; /* Change the font-family to one that supports Japanese characters */
+  color: lime;
+  text-decoration: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+    display: block;
+  }
+  20% {
+    transform: translateY(100vh);
+    opacity: 0.5;
+    display: block;
+  }
+  40% {
+    transform: translateY(100vh);
+    opacity: 1;
+    display: block;
+  }
+  60% {
+    transform: translateY(100vh);
+    opacity: 0.7;
+    display: block;
+  }
+  80% {
+    transform: translateY(100vh);
+    opacity: 0.5;
+    display: block;
+  }
+
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+    display: none;
+  }
+}

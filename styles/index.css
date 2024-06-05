@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glassmorphism {
+  @apply bg-white/5 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-sepia-0 backdrop-blur-sm;
+}
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-zinc-600 via-purple-500 to-pink-950 bg-clip-text text-transparent;
+}
+
+.text_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+
+@layer utilities {
+  .neon-text {
+    text-shadow: 5px 5px 10px rgb(131, 133, 138);
+    color: rgb(253, 253, 253);
+  }
+}
