@@ -5,7 +5,7 @@ const SkilBox = ({
   gradientBg = "white",
   icon,
   text,
-  progressColor,
+
   progressValue = "45%",
 }) => {
   return (
@@ -26,10 +26,12 @@ const SkilBox = ({
         style={{}}
       >
         <div className="font-Josefinsans font-bold flex justify-start items-center ">
-          <div className="h-[20%]"> {icon}</div>
+          <div className="h-[30%] flex overflow-visible">
+            <div> {icon}</div>
 
-          <div className="ml-2 dark:text-white">
-            <h2 className=""> {text}</h2>
+            <div className="ml-2 dark:text-white">
+              <h2 className=""> {text}</h2>
+            </div>
           </div>
         </div>
         <h5 className="text-black dark:text-white font-opensans font-bold text-right">
@@ -59,8 +61,8 @@ SkilBox.propTypes = {
 
 function SkillCard() {
   return (
-    <div className="">
-      <div className="flex gap-10 justify-center rounded-xl flex-wrap p-20">
+    <div className="flex">
+      <div className="flex gap-10 justify-center rounded-xl flex-wrap p-20 max-w-[100rem]  m-auto">
         <SkilBox
           gradientBg={
             "linear-gradient(99deg, rgba(113,113,113,0.7) 45%, rgba(237,79,35,1) 88%)"
@@ -148,9 +150,7 @@ function SkillCard() {
           }
           text={"Typescript"}
           progressValue="60%"
-          icon={
-            <img src="/image/typescript.jpg" style={{ width: "3rem" }}></img>
-          }
+          icon={<img src="/image/ts.png" style={{ width: "1.5rem" }}></img>}
           progressColor={"#34a9ff"}
         />
 

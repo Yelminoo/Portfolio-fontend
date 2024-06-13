@@ -71,7 +71,8 @@ const SvgWithImageOverlay = () => {
 function TypewriterIntroComponent() {
   // const [text, setText] = useState("");
   const initialText =
-    "I'm a seasoned web developer dedicated to exceeding customer expectations through innovative solutions and exceptional service.";
+    // "I'm a seasoned web developer dedicated to exceeding customer expectations through innovative solutions and exceptional service.";
+    "I am a dedicated Full Stack Developer specializing in JavaScript and PHP back-end development. With a strong foundation in both front-end and back-end technologies";
   //const typingSpeed = 100; // Adjust typing speed here (in milliseconds)
   const deleteSpeed = 50; // Adjust typing speed here (in milliseconds)
   const [reachEnd, setReachEnd] = useState(false);
@@ -143,14 +144,17 @@ function TypewriterIntroComponent() {
           className="header-image w-full h-full object-cover"
         />
       </div>
-      <div className=" flex z-30 w-full glassmorphism h-full items-center flex-col md:flex-row flex-grow">
-        <div className="relative  w-full max-w-[800px] sm:w-1/2 md:w-1/2 h-full sm:h-auto flex items-center">
-          <SvgWithImageOverlay />
-        </div>
-        <div className="w-full h-full sm:w-4/6 typewriter-text flex items-center">
-          <h1 className="w-full min-h-28 pb-20 font-montserrat text-4xl neon-text  leading-normal relative after:content-['|'] after:ml-0.5 after:text-red-500 after:animate-pulse">
-            {initialText}
-          </h1>
+      <div className="glassmorphism">
+        <div className=" flex z-30 w-full  max-w-[100rem] m-auto h-full items-center flex-col md:flex-row flex-grow">
+          <div className="relative  w-full max-w-[800px] sm:w-1/2 md:w-1/2 h-full sm:h-auto flex items-center">
+            <SvgWithImageOverlay />
+          </div>
+          <div className="w-full h-full sm:w-4/6 typewriter-text flex items-center">
+            <h1></h1>
+            <h2 className="w-full min-h-28 pb-20 font-montserrat text-3xl neon-text  leading-normal relative after:content-['|'] after:ml-0.5 after:text-red-500 after:animate-pulse">
+              {initialText}
+            </h2>
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,8 @@ import SkillCard from "./components/SkillCard";
 import SkillParallax from "./components/SkillParallax";
 import TypewriterIntroComponent from "./components/TypewriterIntroComponent";
 import ShowcaseBox from "./components/ShowcaseBox";
+import Sidebar from "./components/Sidebar";
+import SocialButtonGroup from "./components/SocialButtonGroup";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +78,7 @@ function App() {
     document.documentElement.classList.toggle("dark");
   };
 
-  const navLists = ["Home", "About Me", "Service", "Contact"];
+  const navLists = ["Home", "About Me", "Skill", "Projects", "Contact"];
 
   useEffect(() => {
     const handleLinkClick = (event) => {
@@ -105,15 +107,31 @@ function App() {
     };
   }, []);
 
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
-      <main className="main-content bg-teal-50 dark:bg-neutral-800">
-        <header className="sticky top-0 z-30">
-          <nav className="p-5 bg-slate-600/60 dark:bg-black/50 text-white flex justify-between px-10 shadow-lg backdrop-blur-sm">
-            <div className="flex w-full justify-between">
-              <div className="w-[10%]">account</div>
-              <div className="w-[70%] ">
-                <ul className="flex justify-center">
+      <main className="main-content bg-teal-50 dark:bg-neutral-800 ">
+        <header className="sticky top-0 z-30 ">
+          <nav className="p-2 bg-slate-600/60 dark:bg-black/50 text-white flex items-center justify-between px-10 shadow-lg backdrop-blur-sm ">
+            <div className="flex w-full items-center justify-between max-w-[100rem] m-auto">
+              <div className="w-[10%]">
+                <img
+                  src={
+                    darkMode
+                      ? "/image/ymo-logo-light.png"
+                      : "/image/ymo-logo-dark.png"
+                  }
+                  className="w-[4rem] object-contain dark:bg-black bg-white border-gray-400/5 rounded-full shadow-lg"
+                />
+              </div>
+
+              <div className="w-[70%] hidden md:block">
+                <ul className="flex justify-center ">
                   {navLists.map((n, index) => (
                     <li key={index}>
                       <a
@@ -126,7 +144,7 @@ function App() {
                   ))}
                 </ul>
               </div>
-              <div className="w-[10%] justify-end">
+              <div className="w-[10%] justify-end visible ">
                 <button onClick={() => toggleDarkMode()}>
                   {!darkMode ? (
                     <i className="fa-regular fa-sun fa-xl"></i>
@@ -135,9 +153,16 @@ function App() {
                   )}
                 </button>
               </div>
+              <div className="relative sm:block md:hidden ">
+                <button onClick={toggleSidebar} className="text-white">
+                  <i className="fa-solid fa-bars"></i>
+                </button>
+                <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+              </div>
             </div>
           </nav>
         </header>
+
         <div className=" scroll-watcher "></div>
         <section
           className="w-full animate-wave-gradient"
@@ -148,28 +173,15 @@ function App() {
             }
           }
         >
-          <div className="w-100 min-h-[90vh] overflow-x-clip ">
+          <div className="w-100 h-[90vh] max-h-[1200px] overflow-x-clip ">
             <TypewriterIntroComponent />
           </div>
         </section>
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#050712"
-          d="M0,192L48,202.7C96,213,192,235,288,224C384,213,480,171,576,128C672,85,768,43,864,58.7C960,75,1056,149,1152,170.7C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-        ></path>
-
-      </svg> */}
-        {/* <section className="relative min-h-screen">
-        <div className="matrix-rain"></div>
-      </section> */}
 
         <section
           className=""
-          id="service"
+          id="skill"
           style={{
-            // background:
-            // "radial-gradient(circle, rgba(24,83,140,1) 32%, rgba(0,0,0,1) 100%)",
-            // "radial-gradient(circle, rgba(61,158,247,1) 0%, rgba(61,158,247,1) 0%, rgba(149,202,250,1) 35%, rgba(254,254,254,1) 71%)",
             backdropFilter: "blur(2px)",
           }}
         >
@@ -184,7 +196,7 @@ function App() {
         <section className="">
           <SkillParallax />
         </section>
-        <section>
+        <section id="projects">
           <div className="text-center p-10">
             <h3 className="text-4xl  dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
               Project Showcase
@@ -192,6 +204,33 @@ function App() {
             <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
           </div>
           <ShowcaseBox />
+        </section>
+        <section
+          className=" max-w-[100rem]"
+          id="contact"
+          style={{
+            backdropFilter: "blur(2px)",
+          }}
+        >
+          <div className="text-center relative p-10 " style={{}}>
+            <h3 className="text-4xl text-black dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
+              Contact
+            </h3>
+
+            <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
+          </div>
+          <div className="w-[80vw]  m-auto">
+            <div className="">
+              <h4 className="text-3xl font-bold dark:text-white">
+                Looking for talented web developers to join your team?
+              </h4>
+            </div>
+
+            <div className="pb-10">
+              <h6 className="text-2xl dark:text-white">You can find me on :</h6>
+              <SocialButtonGroup />
+            </div>
+          </div>
         </section>
       </main>
       <FormModalBox isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -216,6 +255,12 @@ function App() {
           ></i>
         </button>
       </section>
+      <footer className="h-[4rem] flex bg-black justify-between items-center">
+        <h6 className="text-lg  text-white">Powered by YMO dev.</h6>
+        <h6 className="text-lg  text-white">
+          Copyright {new Date().getFullYear()} YMO dev.
+        </h6>
+      </footer>
     </>
   );
 }
