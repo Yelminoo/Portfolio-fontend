@@ -151,12 +151,17 @@ button .slow-ripple-effect {
   scale: 1;
   animation: header-animation linear;
   animation-timeline: view();
-  animation-range: 100px exit;
+  animation-range: entry exit;
 }
 
 @keyframes header-animation {
+  0% {
+    opacity: 1;
+    scale: 0.7;
+  }
   25% {
     opacity: 1;
+    scale: 0.5;
   }
   85% {
     scale: 2;

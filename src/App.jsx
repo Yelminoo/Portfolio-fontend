@@ -213,8 +213,10 @@ function App() {
             }
           }
         >
-          <div className="w-100 h-[90vh] max-h-[1200px] overflow-x-clip">
-            <TypewriterIntroComponent />
+          <div className="w-100 h-auto overflow-x-clip">
+            {/* <TypewriterIntroComponent />
+             */}
+            <img src="/image/banner.jpg" className="w-full header-image" />
           </div>
         </section>
 
