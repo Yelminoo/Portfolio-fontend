@@ -54,7 +54,7 @@ const SvgWithImageOverlay = () => {
           </clipPath>
         </defs>
         <image
-          href="http://localhost:3000/image/business_man_2.webp"
+          href="/image/business_man_2.webp"
           clipPath="url(#clip-path)"
           x="0"
           y="15"
@@ -145,7 +145,7 @@ function TypewriterIntroComponent() {
         }}
       >
         <img
-          src="http://localhost:3000/image/cool-blue-light.jpg"
+          src="/image/cool-blue-light.jpg"
           alt="code-bg"
           className="header-image glassmorphism w-full h-full object-cover"
         />
