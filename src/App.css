@@ -26,7 +26,22 @@ button {
   cursor: pointer;
   outline: none;
 }
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
+.animate-finite-pulse {
+  animation: pulse 1s ease;
+  animation-fill-mode: forwards;
+}
 button .ripple-effect,
 button .slow-ripple-effect {
   position: absolute;
@@ -60,10 +75,11 @@ button .slow-ripple-effect {
 }
 .scroll-watcher {
   height: 5px;
-  border-radius: 2rem;
+  border-radius: rem;
   position: fixed;
+  bottom: -4px;
 
-  z-index: 9;
+  z-index: 99;
   background: linear-gradient(
     99deg,
     rgba(255, 255, 255, 1) 12%,
@@ -130,13 +146,12 @@ button .slow-ripple-effect {
 }
 
 .header-image {
-  transform-origin: bottom;
-
+  transform-origin: center;
   opacity: 1;
   scale: 1;
   animation: header-animation linear;
   animation-timeline: view();
-  animation-range: 0px exit;
+  animation-range: 100px exit;
 }
 
 @keyframes header-animation {
@@ -144,11 +159,11 @@ button .slow-ripple-effect {
     opacity: 1;
   }
   85% {
-    scale: 1.5;
+    scale: 2;
     opacity: 1;
   }
   100% {
-    scale: 2;
+    scale: 2.5;
     opacity: 0;
   }
 }
@@ -165,11 +180,15 @@ button .slow-ripple-effect {
 
 .floating-ui {
   position: fixed;
-  bottom: 70px; /* Margin from the bottom */
-  left: 50%; /* Center horizontally */
+  bottom: 50%; /* Margin from the bottom */
+  left: 5%; /* Center horizontally */
   transform: translateX(-50%); /* Center alignment */
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
   opacity: 1; /* Hidden by default */
   transition: opacity 0.5s ease; /* Smooth transition */
 }
@@ -220,5 +239,168 @@ button .slow-ripple-effect {
     transform: translateY(100vh);
     opacity: 0;
     display: none;
+  }
+}
+
+.fancy {
+  --offset: 5px;
+  background: rgb(249, 249, 249);
+  position: relative;
+
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Conic gradient */
+.fancy::before {
+  content: "";
+  display: none;
+  background: conic-gradient(transparent 270deg, rgb(5, 228, 83), transparent);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  width: 80%;
+  height: 100%;
+}
+
+.fancy:hover::before {
+  display: block;
+  animation: rotate 2s linear infinite;
+}
+
+/* Overlay */
+.fancy::after {
+  content: "";
+
+  background: inherit;
+  border-radius: inherit;
+  position: absolute;
+  inset: var(--offset);
+  height: calc(100% - 2 * var(--offset));
+  width: calc(100% - 2 * var(--offset));
+}
+
+/* .fancy input {
+    background: transparent;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    padding: 1.5rem;
+} */
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+  }
+}
+
+.border-box {
+  width: 60vmin;
+  height: 50vmin;
+  display: grid;
+  place-content: center;
+  color: white;
+  text-shadow: 0 1px 0 #000;
+
+  --border-angle: 0turn;
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #213,
+    #112 5%,
+    #112 60%,
+    #213 95%
+  );
+
+  border: solid 5px transparent;
+  border-radius: 2em;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    #08f,
+    #f03 99%,
+    transparent
+  );
+
+  background: var(--main-bg) padding-box, var(--gradient-border) border-box,
+    var(--main-bg) border-box;
+
+  background-position: center center;
+
+  animation: bg-spin 3s linear infinite;
+
+  /* &:hover {
+    animation-play-state: paused;
+  } */
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.tag-list {
+  margin: 0;
+  padding-inline: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  color: white;
+  padding: 1rem;
+  background: gray;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem -0.25rem gray;
+}
+
+.scroller {
+  width: 60vw;
+  max-width: 1200px;
+  overflow: hidden;
+  outline: 3px solid lime;
+}
+
+.scroller_inner {
+  display: flex;
+  flex-wrap: wrap;
+  padding-block: 1rem;
+  gap: 1rem;
+}
+.scroller[data-animated="true"] {
+  width: max-content;
+  border: 5px solid rgb(146, 156, 146);
+  overflow: hidden;
+  mask: linear-gradient(90deg, transparent, gray 20%, gray 80%, transparent);
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    gray 20%,
+    gray 80%,
+    transparent
+  );
+}
+
+.scroller[data-animated="true"] .scroller_inner {
+  flex-wrap: nowrap;
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-40%));
   }
 }

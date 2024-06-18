@@ -134,19 +134,25 @@ function TypewriterIntroComponent() {
   }, [reachEnd, deleteText]); // Dependency on reachEnd to start deleting
 
   return (
-    <div className="relative h-full ">
+    <div className="relative h-full glassmorphism">
       {/* bg image */}
 
-      <div className=" absolute top-0 left-0  w-full h-full">
+      <div
+        className="absolute top-0 left-0  w-full h-full overflow-y-clip glassmorphism"
+        style={{
+          background:
+            "linear-gradient(180deg,hsl(240deg 11% 85%) 0%,hsl(224deg 31% 85%) 2%,hsl(213deg 54% 85%) 5%,hsl(205deg 73% 83%) 7%,hsl(199deg 84% 80%) 10%, hsl(192deg 86% 77%) 13%,hsl(186deg 81% 72%) 16%,hsl(179deg 72% 67%) 20%,hsl(171deg 75% 67%) 24%,hsl(161deg 76% 68%) 29%,hsl(146deg 73% 71%) 34%,hsl(121deg 67% 75%) 41%,hsl(120deg 67% 78%) 52%,hsl(119deg 67% 80%) 69%,hsl(118deg 68% 82%) 79%,hsl(118deg 68% 84%) 84%,hsl(117deg 68% 87%) 88%,hsl(117deg 69% 89%) 91%,hsl(116deg 69% 91%) 93%,hsl(116deg 70% 93%) 95%,hsl(116deg 70% 96%) 97%,hsl(115deg 71% 98%) 99%,hsl(0deg 0% 100%) 100%)",
+        }}
+      >
         <img
-          src="http://localhost:3000/image/blue_matrix.png"
+          src="http://localhost:3000/image/cool-blue-light.jpg"
           alt="code-bg"
-          className="header-image w-full h-full object-cover"
+          className="header-image glassmorphism w-full h-full object-cover"
         />
       </div>
-      <div className="glassmorphism">
+      <div className="glassmorphism h-full">
         <div className=" flex z-30 w-full  max-w-[100rem] m-auto h-full items-center flex-col md:flex-row flex-grow">
-          <div className="relative  w-full max-w-[800px] sm:w-1/2 md:w-1/2 h-full sm:h-auto flex items-center">
+          <div className="relative w-full max-w-[800px] sm:w-1/2 md:w-1/2 h-full sm:h-auto flex items-center">
             <SvgWithImageOverlay />
           </div>
           <div className="w-full h-full sm:w-4/6 typewriter-text flex items-center">

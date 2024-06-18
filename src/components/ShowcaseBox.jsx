@@ -89,46 +89,49 @@ const AppUIBox = ({
 
   return (
     <>
-      <div className="flex gap-20 justify-center md:justify-normal flex-wrap md:flex-nowrap  items-center my-5 ">
+      <div className="flex gap-20 justify-center  md:justify-normal flex-wrap md:flex-nowrap  items-center my-5 ">
+        <div className="fancy bg-white-[10rem] h-[20rem]"></div>
+
         <div
           className={`w-2/4 ${boxPosition === "right" ? "order-2" : ""} flex`}
         >
           <div
-            className={`showcase-box w-[10rem] h-[20rem] m-auto bg-slate-200 dark:bg-transparent border-[4px] border-gray-600 hover:border-green-500 shadow-lg rounded-xl }`}
+            className={`showcase-box w-[10rem] h-[20rem] fancy m-auto border-[4px] p-2 shadow-lg rounded-xl border-black}`}
           >
-            <div className=" border rounded-lg  glassmorphism w-full h-full">
-              <div className="h-[5%] w-full  flex justify-center items-center gap-2">
-                <div className="h-1/2 w-2/4 bg-black rounded-lg"></div>
-                <div className="h-[0.7rem] w-[0.7rem] bg-black rounded-full"></div>
-              </div>
-              <div
-                className="border rounded-lg border-1 border-gray-400 overflow-hidden cursor-pointer h-[85%] "
-                onClick={() => {
-                  setIsOpen((prev) => !prev);
-                }}
-              >
-                <div className="relative h-full border rounded-lg flex">
-                  <img
-                    src={img}
-                    alt="Blurred Image"
-                    className="absolute inset-0 w-full h-full object-cover object-fit-cover filter blur-lg "
-                  />
-                  <img
-                    src={img}
-                    alt="Content Image"
-                    className="relative w-full h-full object-contain "
-                  ></img>
+            <div className="relative h-full w-full">
+              <div className="absolute top-0 left-0  rounded-lg z-50  glassmorphism w-full h-full">
+                <div className="h-[5%] w-full  flex justify-center items-center gap-2">
+                  <div className="h-1/2 w-2/4 bg-black rounded-lg"></div>
+                  <div className="h-[0.7rem] w-[0.7rem] bg-black rounded-full"></div>
                 </div>
-              </div>
-              <div className="h-[5%] m-2 flex justify-center items-center">
-                <a
-                  href={link}
-                  className="border-2 rounded-full bg-white w-[2rem] h-[2rem] border-double border-gray-600 flex shadow-lg"
+                <div
+                  className="border rounded-lg border-1 border-gray-400 overflow-hidden cursor-pointer h-[85%] "
+                  onClick={() => {
+                    setIsOpen((prev) => !prev);
+                  }}
                 >
-                  <div className="w-1/3 h-1/3 rounded-sm border-black border-2 m-auto"></div>
-                </a>
-              </div>
-              {/* <div className="p-2 flex items-center gap-5">
+                  <div className="relative h-full border p-2 rounded-lg flex">
+                    <img
+                      src={img}
+                      alt="Blurred Image"
+                      className="absolute inset-0 w-full h-full object-cover object-fit-cover filter blur-lg "
+                    />
+                    <img
+                      src={img}
+                      alt="Content Image"
+                      className="relative w-full h-full object-contain "
+                    ></img>
+                  </div>
+                </div>
+                <div className="h-[5%] m-2 flex justify-center items-center">
+                  <a
+                    href={link}
+                    className="border-2 rounded-full bg-white w-[2rem] h-[2rem] border-double border-gray-600 flex shadow-lg"
+                  >
+                    <div className="w-1/3 h-1/3 rounded-sm border-black border-2 m-auto"></div>
+                  </a>
+                </div>
+                {/* <div className="p-2 flex items-center gap-5">
                 <i className="fa-solid fa-globe dark:text-white"></i>
                 <a href={link}>
                   <p className="whitespace-nowrap text-ellipsis overflow-hidden underline dark:text-white">
@@ -136,6 +139,7 @@ const AppUIBox = ({
                   </p>
                 </a>
               </div> */}
+              </div>
             </div>
           </div>
         </div>

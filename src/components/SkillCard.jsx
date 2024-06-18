@@ -22,7 +22,7 @@ const SkilBox = ({
       }}
     >
       <div
-        className=" h-full border rounded-lg p-5 overflow-hidden  bg-slate-200 dark:bg-transparent border-black/2 shadow-lg"
+        className=" h-full border rounded-lg p-5 overflow-hidden  bg-slate-200 dark:bg-transparent border-black/5 shadow-md"
         style={{}}
       >
         <div className="font-Josefinsans font-bold flex justify-start items-center ">

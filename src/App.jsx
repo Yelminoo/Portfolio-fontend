@@ -78,7 +78,42 @@ function App() {
     document.documentElement.classList.toggle("dark");
   };
 
-  const navLists = ["Home", "About Me", "Skill", "Projects", "Contact"];
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll(".section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    const handleScroll = () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (
+          window.scrollY >= sectionTop - sectionHeight / 3 &&
+          window.scrollY < sectionTop + sectionHeight - sectionHeight / 3
+        ) {
+          current = section.getAttribute("id");
+          alert("current :" + current);
+        }
+      });
+
+      if (current !== activeSection) {
+        setActiveSection(current);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection]);
+
+  console.log(activeSection);
+  console.log("active section");
+
+  const navLists = ["About Me", "Skill", "Projects", "Contact"];
 
   useEffect(() => {
     const handleLinkClick = (event) => {
@@ -116,56 +151,61 @@ function App() {
   return (
     <>
       <main className="main-content bg-teal-50 dark:bg-neutral-800 ">
-        <header className="sticky top-0 z-30 ">
-          <nav className="p-2 bg-slate-600/60 dark:bg-black/50 text-white flex items-center justify-between px-10 shadow-lg backdrop-blur-sm ">
-            <div className="flex w-full items-center justify-between max-w-[100rem] m-auto">
-              <div className="w-[10%]">
-                <img
-                  src={
-                    darkMode
-                      ? "/image/ymo-logo-light.png"
-                      : "/image/ymo-logo-dark.png"
-                  }
-                  className="w-[4rem] object-contain dark:bg-black bg-white border-gray-400/5 rounded-full shadow-lg"
-                />
-              </div>
+        <header className="fixed w-full top-5 z-30 ">
+          <div className="relative overflow-clip rounded-full w-4/6 max-w-[100rem] m-auto">
+            <nav className="m-auto rounded-full bg-slate-600/60 dark:bg-black/50 text-white flex items-center justify-between border-double border-2 border-gray-500 shadow-lg backdrop-blur-sm ">
+              <div className="flex w-full items-center justify-between  m-auto">
+                <div className="sm:w-[20%] md:w-[10%]">
+                  <img
+                    src={
+                      darkMode
+                        ? "/image/ymo-logo-light.png"
+                        : "/image/ymo-logo-dark.png"
+                    }
+                    className="w-[4rem] object-contain dark:bg-black bg-white border-gray-400/5 rounded-full shadow-lg"
+                  />
+                </div>
 
-              <div className="w-[70%] hidden md:block">
-                <ul className="flex justify-center ">
-                  {navLists.map((n, index) => (
-                    <li key={index}>
-                      <a
-                        href={"#" + n.toLowerCase()}
-                        className=" hover:underline mx-5 underline-offset-8 cursor-pointer font-opensans font-bold"
-                      >
-                        {n}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="w-[70%] hidden md:block">
+                  <ul className="flex justify-center ">
+                    {navLists.map((n, index) => (
+                      <li key={index}>
+                        <a
+                          href={"#" + n.toLowerCase()}
+                          className=" hover:underline mx-5 underline-offset-8 cursor-pointer font-opensans font-bold"
+                        >
+                          {n}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="w-[10%] justify-end visible ">
+                  <button onClick={() => toggleDarkMode()}>
+                    {!darkMode ? (
+                      <i className="fa-regular fa-sun fa-xl"></i>
+                    ) : (
+                      <i className="fa-regular fa-moon fa-xl"></i>
+                    )}
+                  </button>
+                </div>
+                <div className="relative sm:block md:hidden mr-4">
+                  <button onClick={toggleSidebar} className="text-white">
+                    <i className="fa-solid fa-bars "></i>
+                  </button>
+                  <Sidebar
+                    isOpen={isSidebarOpen}
+                    toggleSidebar={toggleSidebar}
+                  />
+                </div>
               </div>
-              <div className="w-[10%] justify-end visible ">
-                <button onClick={() => toggleDarkMode()}>
-                  {!darkMode ? (
-                    <i className="fa-regular fa-sun fa-xl"></i>
-                  ) : (
-                    <i className="fa-regular fa-moon fa-xl"></i>
-                  )}
-                </button>
-              </div>
-              <div className="relative sm:block md:hidden ">
-                <button onClick={toggleSidebar} className="text-white">
-                  <i className="fa-solid fa-bars"></i>
-                </button>
-                <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-              </div>
-            </div>
-          </nav>
+              <div className="scroll-watcher"></div>
+            </nav>
+          </div>
         </header>
 
-        <div className=" scroll-watcher "></div>
         <section
-          className="w-full animate-wave-gradient"
+          className="w-full animate-wave-gradient bg-dark"
           style={
             {
               // backgroundImage:
@@ -173,7 +213,7 @@ function App() {
             }
           }
         >
-          <div className="w-100 h-[90vh] max-h-[1200px] overflow-x-clip ">
+          <div className="w-100 h-[90vh] max-h-[1200px] overflow-x-clip">
             <TypewriterIntroComponent />
           </div>
         </section>
@@ -194,7 +234,8 @@ function App() {
           <SkillCard></SkillCard>
         </section>
         <section className="">
-          <SkillParallax />
+          {" "}
+          <SkillParallax />{" "}
         </section>
         <section id="projects">
           <div className="text-center p-10">
@@ -233,9 +274,10 @@ function App() {
           </div>
         </section>
       </main>
+
       <FormModalBox isOpen={isOpen} setIsOpen={setIsOpen} />
-      <section className="glassmorphism floating-ui bg-white/5 rounded-lg p-5 border-2 border-gray-100">
-        <button className="h-100 overflow-visible">
+      <section className="glassmorphism floating-ui bg-white/5 rounded-lg p-5 border-2 border-gray-400">
+        <button className="h-100 overflow-visible hover:scale-125">
           <a
             href={`${process.env.PUBLIC_URL}/resume/Yel Min Oo's Resume2.pdf`}
             target="_blank"
@@ -246,7 +288,10 @@ function App() {
             ></i>
           </a>
         </button>
-        <button onClick={() => setIsOpen(true)} className="hover:text-black">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="hover:text-black hover:scale-125"
+        >
           <i
             className="fa-solid fa-envelope fa-2xl "
             style={{
