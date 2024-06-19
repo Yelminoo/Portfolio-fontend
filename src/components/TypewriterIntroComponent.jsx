@@ -3,7 +3,7 @@ import "./TypewriterStyle.css";
 
 const SvgWithImageOverlay = () => {
   return (
-    <div className="container relative mt-16 overflow-hidden scale-125">
+    <div className="container relative mt-16 overflow-hidden scale-[2] md:scale-125">
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         {/* Define the shadow filter */}
         <defs>
@@ -155,16 +155,16 @@ function TypewriterIntroComponent() {
         />
       </div>
       <div className="glassmorphism w-full h-full">
-        <div className=" flex z-30 w-full  h-full items-center flex-col md:flex-row flex-grow max-w-[100rem] m-auto">
-          <div className="relative w-1/3 h-full sm:h-auto flex items-center">
+        <div className=" flex z-30 w-full pt-20  h-full items-center flex-col md:flex-row flex-grow max-w-[100rem] m-auto">
+          <div className="relative w-1/3 sm:w-1/2 md:w-1/3 h-full sm:h-auto flex items-center">
             <SvgWithImageOverlay />
           </div>
-          <div className="w-full h-full sm:w-4/6 md:w-3/5 typewriter-text flex justify-start items-center">
+          <div className="w-full p-2 h-full sm:w-4/6 md:w-3/5 typewriter-text flex justify-start items-center">
             <div>
-              <h1 className="block text-5xl font-extralight neon-text my-8">
+              <h1 className="block md:text-5xl text-3xl font-extralight neon-text my-8">
                 Hello I&apos;m <strong className="">Yel Min Oo</strong>
               </h1>
-              <h2 className="w-full min-h-28 pb-20 font-montserrat text-3xl neon-text  leading-normal relative after:content-['|'] after:ml-0.5 after:text-red-500 after:animate-pulse">
+              <h2 className="w-full min-h-28 pb-20 md:text-3xl text-2xl font-montserrat  neon-text  leading-normal relative after:content-['|'] after:ml-0.5 after:text-red-500 after:animate-pulse">
                 {initialText}
               </h2>
             </div>

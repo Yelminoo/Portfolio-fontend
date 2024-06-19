@@ -232,7 +232,7 @@ function App() {
             }
           }
         >
-          <div className="w-full h-[100vh]">
+          <div className="w-full min-h-[100vh]">
             <TypewriterIntroComponent />
 
             {/* <img src="/image/banner.jpg" className="w-full header-image" /> */}
@@ -312,18 +312,21 @@ function App() {
               <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
             </div>
             <div className="w-[80vw] max-w-[100rem] m-auto">
-              <div className="flex gap-5 w-full ">
-                <div className="w-full">
+              <div className="flex gap-5 w-full flex-col md:flex-row">
+                <div className="w-full ">
                   <h4 className="text-3xl font-bold dark:text-white">
                     Looking for talented web developers to join your team?
                   </h4>
                   <p className=" text-xl my-10 dark:text-white">
                     Have a discussion with me{" "}
                     <span className="hidden md:inline">&#x2192;</span>
+                    <span className="inline md:hidden">&#x2193;</span>
                   </p>
                 </div>
 
-                <ContactForm />
+                <div className="w-full md:w-1/2">
+                  <ContactForm />
+                </div>
               </div>
 
               <div className="pb-10">
@@ -369,8 +372,8 @@ function App() {
       </section>
       <footer className="h-[4rem] p-5 bg-black ">
         <div className=" flex px-10 max-w-[100rem] justify-between items-center">
-          <h6 className="text-lg  text-white">Powered by YMO dev.</h6>
-          <h6 className="text-lg  text-white">
+          <h6 className="text-sm md:text-lg text-white">Powered by YMO dev.</h6>
+          <h6 className="text-sm md:text-lg  text-white">
             Copyright {new Date().getFullYear()} YMO dev.
           </h6>
         </div>
