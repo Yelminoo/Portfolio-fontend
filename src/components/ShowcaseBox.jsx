@@ -89,9 +89,7 @@ const AppUIBox = ({
 
   return (
     <>
-      <div className="flex gap-20 justify-center  md:justify-normal flex-wrap md:flex-nowrap  items-center my-5 ">
-        <div className="fancy bg-white-[10rem] h-[20rem]"></div>
-
+      <div className="flex gap-20 justify-center  md:justify-normal flex-wrap md:flex-nowrap  my-5 ">
         <div
           className={`w-2/4 ${boxPosition === "right" ? "order-2" : ""} flex`}
         >

@@ -8,6 +8,7 @@ import TypewriterIntroComponent from "./components/TypewriterIntroComponent";
 import ShowcaseBox from "./components/ShowcaseBox";
 import Sidebar from "./components/Sidebar";
 import SocialButtonGroup from "./components/SocialButtonGroup";
+import ContactForm from "./components/ContactForm";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,7 +83,7 @@ function App() {
 
   useEffect(() => {
     const sections = document.querySelectorAll(".section");
-    const navLinks = document.querySelectorAll("nav ul li a");
+    // const navLinks = document.querySelectorAll("nav ul li a");
 
     const handleScroll = () => {
       let current = "";
@@ -110,37 +111,55 @@ function App() {
     };
   }, [activeSection]);
 
-  console.log(activeSection);
-  console.log("active section");
-
-  const navLists = ["About Me", "Skill", "Projects", "Contact"];
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleLinkClick = (event) => {
-      console.log(event);
-      event.preventDefault();
-      const targetId = event.currentTarget.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+    const handleScroll = () => {
+      const section1 = document.querySelector(".intro-banner");
+      console.log(section1);
+      console.log("section 1");
+      const section1End = section1.offsetTop + section1.offsetHeight;
+      console.log(section1End);
+      console.log(window.scrollY);
+      if (window.scrollY >= section1End) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
       }
     };
 
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach((link) => {
-      link.addEventListener("click", handleLinkClick);
-    });
-
-    return () => {
-      links.forEach((link) => {
-        link.removeEventListener("click", handleLinkClick);
-      });
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLists = ["About Me", "Skill", "Projects", "Contact"];
+
+  // useEffect(() => {
+  //   const handleLinkClick = (event) => {
+  //     console.log(event);
+  //     event.preventDefault();
+  //     const targetId = event.currentTarget.getAttribute("href").substring(1);
+  //     const targetElement = document.getElementById(targetId);
+
+  //     if (targetElement) {
+  //       targetElement.scrollIntoView({
+  //         behavior: "smooth",
+  //         block: "start",
+  //       });
+  //     }
+  //   };
+
+  //   const links = document.querySelectorAll('a[href^="#"]');
+  //   links.forEach((link) => {
+  //     link.addEventListener("click", handleLinkClick);
+  //   });
+
+  //   return () => {
+  //     links.forEach((link) => {
+  //       link.removeEventListener("click", handleLinkClick);
+  //     });
+  //   };
+  // }, []);
 
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
@@ -205,7 +224,7 @@ function App() {
         </header>
 
         <section
-          className="w-full animate-wave-gradient bg-dark"
+          className="w-full animate-wave-gradient bg-dark intro-banner"
           style={
             {
               // backgroundImage:
@@ -213,18 +232,37 @@ function App() {
             }
           }
         >
-          <div className="w-100 h-auto overflow-x-clip">
-            {/* <TypewriterIntroComponent />
-             */}
-            <img src="/image/banner.jpg" className="w-full header-image" />
+          <div className="w-full h-[100vh]">
+            <TypewriterIntroComponent />
+
+            {/* <img src="/image/banner.jpg" className="w-full header-image" /> */}
           </div>
         </section>
 
+        <div className="blob-container w-full">
+          <div className="circle d1" style={{ animationDelay: "-14s" }}></div>
+          <div className="circle d2" style={{ animationDelay: "-13s" }}></div>
+          <div className="circle d3" style={{ animationDelay: "-12s" }}></div>
+          <div className="circle d1" style={{ animationDelay: "-11s" }}></div>
+          <div className="circle d2" style={{ animationDelay: "-10s" }}></div>
+          <div className="circle d3" style={{ animationDelay: "-9s" }}></div>
+          <div className="circle d1" style={{ animationDelay: "-8s" }}></div>
+          <div className="circle d2" style={{ animationDelay: "-7s" }}></div>
+          <div className="circle d3" style={{ animationDelay: "-6s" }}></div>
+          <div className="circle d1" style={{ animationDelay: "-5s" }}></div>
+          <div className="circle d2" style={{ animationDelay: "-4s" }}></div>
+          <div className="circle d3" style={{ animationDelay: "-3s" }}></div>
+          <div className="circle d1" style={{ animationDelay: "-2s" }}></div>
+          <div className="circle d2" style={{ animationDelay: "-1s" }}></div>
+          <div className="circle d3" style={{ animationDelay: "-0s" }}></div>
+          {/*  */}
+        </div>
+
         <section
-          className=""
+          className="w-full"
           id="skill"
           style={{
-            backdropFilter: "blur(2px)",
+            backdropFilter: darkMode ? "blur(5px)" : "blur(2px)",
           }}
         >
           <div className="text-center relative p-10 " style={{}}>
@@ -235,11 +273,23 @@ function App() {
           </div>
           <SkillCard></SkillCard>
         </section>
-        <section className="">
+        <section
+          className=""
+          style={{
+            backdropFilter: "blur(10px)",
+          }}
+        >
           {" "}
           <SkillParallax />{" "}
         </section>
-        <section id="projects">
+
+        <section
+          id="projects"
+          className="p-5"
+          style={{
+            backdropFilter: "blur(10px)",
+          }}
+        >
           <div className="text-center p-10">
             <h3 className="text-4xl  dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
               Project Showcase
@@ -247,42 +297,57 @@ function App() {
             <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
           </div>
           <ShowcaseBox />
-        </section>
-        <section
-          className=" max-w-[100rem]"
-          id="contact"
-          style={{
-            backdropFilter: "blur(2px)",
-          }}
-        >
-          <div className="text-center relative p-10 " style={{}}>
-            <h3 className="text-4xl text-black dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
-              Contact
-            </h3>
+          <section
+            className="w-full p-0 m-0 border-0"
+            id="contact"
+            style={{
+              backdropFilter: "blur(10px)",
+            }}
+          >
+            <div className="text-center relative p-10 " style={{}}>
+              <h3 className="text-4xl text-black dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
+                Contact
+              </h3>
 
-            <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
-          </div>
-          <div className="w-[80vw]  m-auto">
-            <div className="">
-              <h4 className="text-3xl font-bold dark:text-white">
-                Looking for talented web developers to join your team?
-              </h4>
+              <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
             </div>
+            <div className="w-[80vw] max-w-[100rem] m-auto">
+              <div className="flex gap-5 w-full ">
+                <div className="w-full">
+                  <h4 className="text-3xl font-bold dark:text-white">
+                    Looking for talented web developers to join your team?
+                  </h4>
+                  <p className=" text-xl my-10 dark:text-white">
+                    Have a discussion with me{" "}
+                    <span className="hidden md:inline">&#x2192;</span>
+                  </p>
+                </div>
 
-            <div className="pb-10">
-              <h6 className="text-2xl dark:text-white">You can find me on :</h6>
-              <SocialButtonGroup />
+                <ContactForm />
+              </div>
+
+              <div className="pb-10">
+                <h6 className="text-2xl dark:text-white">
+                  You can find me on :
+                </h6>
+                <SocialButtonGroup />
+              </div>
             </div>
-          </div>
+          </section>
         </section>
       </main>
 
       <FormModalBox isOpen={isOpen} setIsOpen={setIsOpen} />
-      <section className="glassmorphism floating-ui bg-white/5 rounded-lg p-5 border-2 border-gray-400">
+      <section
+        className={`glassmorphism floating-ui ${
+          isVisible ? "visible" : "hidden"
+        } bg-white/5 rounded-lg p-5 border-2 border-gray-400`}
+      >
         <button className="h-100 overflow-visible hover:scale-125">
           <a
             href={`${process.env.PUBLIC_URL}/resume/Yel Min Oo's Resume2.pdf`}
             target="_blank"
+            className=""
           >
             <i
               className="fa-solid fa-file-pdf fa-2xl"
@@ -290,7 +355,7 @@ function App() {
             ></i>
           </a>
         </button>
-        <button
+        {/* <button
           onClick={() => setIsOpen(true)}
           className="hover:text-black hover:scale-125"
         >
@@ -300,13 +365,15 @@ function App() {
               color: "#278aff",
             }}
           ></i>
-        </button>
+        </button> */}
       </section>
-      <footer className="h-[4rem] flex bg-black justify-between items-center">
-        <h6 className="text-lg  text-white">Powered by YMO dev.</h6>
-        <h6 className="text-lg  text-white">
-          Copyright {new Date().getFullYear()} YMO dev.
-        </h6>
+      <footer className="h-[4rem] p-5 bg-black ">
+        <div className=" flex px-10 max-w-[100rem] justify-between items-center">
+          <h6 className="text-lg  text-white">Powered by YMO dev.</h6>
+          <h6 className="text-lg  text-white">
+            Copyright {new Date().getFullYear()} YMO dev.
+          </h6>
+        </div>
       </footer>
     </>
   );

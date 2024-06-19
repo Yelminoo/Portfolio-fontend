@@ -24,7 +24,12 @@ function SkillParallax() {
     }
   }, []);
   return (
-    <div className="scroller m-auto">
+    <div
+      className="scroller m-auto"
+      style={{
+        backdropFilter: "blur(10px)",
+      }}
+    >
       <ul className="tag-list scroller_inner">
         <li>HTML</li>
         <li>CSS</li>
