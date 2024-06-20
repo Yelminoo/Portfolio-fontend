@@ -230,11 +230,12 @@ function ShowcaseBox() {
           </div>
         }
       />
+      
       <AppUIBox
         title={"Aigma PTE Mobile (Android)"}
         img={"/image/aigma-mobile.png"}
         boxPosition="right"
-        link="https://promptopia-xi-flax.vercel.app/"
+        link="https://play.google.com/store/apps/details?id=com.aigmamobile"
         description={
           "Aigma PTE Mobile for Android stands out as the ultimate preparation tool for the PTE exam. Its comprehensive features and personalized approach ensure that you are well-prepared to achieve your desired score. Whether you are a beginner or looking to improve your existing skills, Aigma PTE Mobile provides the resources and support you need to succeed. "
         }
