@@ -9,6 +9,7 @@ import ShowcaseBox from "./components/ShowcaseBox";
 import Sidebar from "./components/Sidebar";
 import SocialButtonGroup from "./components/SocialButtonGroup";
 import ContactForm from "./components/ContactForm";
+import AboutMe from "./components/AboutMe";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -237,6 +238,24 @@ function App() {
 
             {/* <img src="/image/banner.jpg" className="w-full header-image" /> */}
           </div>
+        </section>
+        <section
+          id="about me"
+          className="w-full animate-wave-gradient bg-dark intro-banner"
+          style={
+            {
+              // backgroundImage:
+              //   "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(25,152,246,1) 72%)",
+            }
+          }
+        >
+          <div className="text-center relative p-10 ">
+            <h3 className="text-4xl text-black dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
+              About Me
+            </h3>
+            <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
+          </div>
+          <AboutMe />
         </section>
 
         <div className="blob-container w-full">
