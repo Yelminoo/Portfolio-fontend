@@ -313,7 +313,7 @@ function App() {
             </div>
             <div className="w-[80vw] max-w-[100rem] m-auto">
               <div className="flex gap-5 w-full flex-col md:flex-row">
-                <div className="w-full ">
+                <div className="w-full md:w-1/2">
                   <h4 className="text-3xl font-bold dark:text-white">
                     Looking for talented web developers to join your team?
                   </h4>

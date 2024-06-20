@@ -140,7 +140,7 @@ function SkillCard() {
           text={"React Native"}
           progressValue="95%"
           icon={
-            <img src="/image/react-native.png" style={{ width: "3rem" }}></img>
+            <img src="/image/react-native.png" style={{ width: "2rem" }}></img>
           }
           progressColor={"#34a9ff"}
         />
@@ -187,7 +187,7 @@ function SkillCard() {
             "linear-gradient(99deg, rgba(113,113,113,0.7) 45%, #74C0FC 88%)"
           }
           text={"Tailwind"}
-          icon={<img src="/image/tailwind.png" style={{ width: "2rem" }}></img>}
+          icon={<img src="/image/tailwind.png" style={{ width: "1.5rem" }}></img>}
           progressColor={"#74C0FC"}
           progressValue="90%"
         />

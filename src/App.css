@@ -372,6 +372,7 @@ button .slow-ripple-effect {
 .tag-list li {
   color: white;
   padding: 1rem;
+
   background: gray;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem -0.25rem gray;
@@ -411,7 +412,7 @@ button .slow-ripple-effect {
 
 @keyframes scroll {
   to {
-    transform: translate(calc(-40%));
+    transform: translate(calc(-75%));
   }
 }
 

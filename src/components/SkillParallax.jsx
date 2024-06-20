@@ -6,10 +6,11 @@ function SkillParallax() {
   useEffect(() => {
     const scrollers = document.querySelectorAll(".scroller");
 
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      addAnimation();
-    }
-
+    // if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    //   addAnimation();
+    // }
+    addAnimation();
+    addAnimation();
     function addAnimation() {
       scrollers.forEach((scroller) => {
         scroller.setAttribute("data-animated", true);
@@ -35,8 +36,12 @@ function SkillParallax() {
         <li>CSS</li>
         <li>JS</li>
         <li>PHP</li>
-        <li>React</li>
         <li>Node</li>
+        <li>React</li>
+        <li>Express</li>
+        <li>Laravel</li>
+        <li>Bootstrap</li>
+        <li>Tailwind</li>
       </ul>
     </div>
   );
