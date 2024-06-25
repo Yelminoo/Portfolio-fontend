@@ -114,24 +114,22 @@ function App() {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const section1 = document.querySelector(".intro-banner");
-      console.log(section1);
-      console.log("section 1");
-      const section1End = section1.offsetTop + section1.offsetHeight;
-      console.log(section1End);
-      console.log(window.scrollY);
-      if (window.scrollY >= section1End) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const section1 = document.querySelector(".intro-banner");
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //     const section1End = section1.offsetTop + section1.offsetHeight;
+
+  //     if (window.scrollY >= section1End) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   const navLists = ["About Me", "Skill", "Projects", "Contact"];
 
@@ -259,12 +257,12 @@ function App() {
         </section>
 
         <div className="blob-container w-full">
-          <div className="circle d1" style={{ animationDelay: "-14s" }}></div>
+          {/* <div className="circle d1" style={{ animationDelay: "-14s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-13s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-12s" }}></div>
           <div className="circle d1" style={{ animationDelay: "-11s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-10s" }}></div>
-          <div className="circle d3" style={{ animationDelay: "-9s" }}></div>
+          <div className="circle d3" style={{ animationDelay: "-9s" }}></div> */}
           <div className="circle d1" style={{ animationDelay: "-8s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-7s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-6s" }}></div>
@@ -348,7 +346,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="pb-10">
+              <div className="py-20">
                 <h6 className="text-2xl dark:text-white">
                   You can find me on :
                 </h6>

@@ -1,7 +1,7 @@
 function AboutMe() {
   return (
     <>
-      <div className="w-full backdrop-blur-sm flex flex-col md:flex-row gap-5 items-center p-20">
+      <div className="w-full backdrop-blur-sm flex flex-col md:flex-row gap-5 items-center py-20 px-32">
         <p className="text-2xl dark:text-white text-gray-700 pe-10">
           My journey into web development began with a fascination for how
           websites are built and function. This curiosity led me to dive deep
@@ -11,7 +11,7 @@ function AboutMe() {
           understanding of web technologies, which I continuously strive to
           expand and refine.
         </p>
-        <div className="min-w-[300px] min-h-[500px]flex justify-center">
+        <div className="min-w-[300px] min-h-[300px] flex justify-center">
           <div
             className="relative w-full h-[40vh] rounded-full glassmorphism bg-gray-50 "
             style={{
@@ -34,22 +34,22 @@ function AboutMe() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col md:flex-row items-start p-20 gap-10">
+      <div className="w-full flex flex-col md:flex-row items-start py-20 px-32 gap-10">
         <div className="w-1/2">
-          <h3 className="text-xl font-medium">
+          <h3 className="text-xl font-medium dark:text-white">
             <span className="text-4xl ">&#x2192;</span> What I do
           </h3>
-          <div className="min-h-[5rem]">
-            <p className="text-lg">
+          <div className="min-h-[7rem]">
+            <p className="text-lg dark:text-white">
               As a Full Stack Developer, I enjoy working on all aspects of web
               development.
               <br /> My skills include:
             </p>
           </div>
 
-          <ul className="list-disc list-inside text-lg leading-10">
+          <ul className="list-disc list-inside text-lg leading-10 dark:text-white">
             <li>
-              <strong>Frontend Development:</strong>
+              <strong>Frontend Development: </strong>
               Crafting intuitive and responsive user interfaces using HTML, CSS,
               JavaScript, and modern frameworks like React and Vue.js.
             </li>
@@ -59,34 +59,34 @@ function AboutMe() {
               and Node.js, along with databases such as MySQL and MongoDB.
             </li>
             <li>
-              <strong>Full Stack Solutions:</strong>
+              <strong>Full Stack Solutions: </strong>
               Integrating frontend and backend technologies to create seamless,
               end-to-end web applications that deliver a great user experience.
             </li>
           </ul>
         </div>
         <div className="w-1/2">
-          <h3 className="text-xl font-medium">
+          <h3 className="text-xl font-medium dark:text-white">
             <span className="text-4xl ">&#x2192;</span> Why Choose Me?
           </h3>
-          <div className="min-h-[5rem]"></div>
+          <div className="min-h-[7rem]"></div>
           {/* <p className="text-xl">
             As a Full Stack Developer, I enjoy working on all aspects of web
             development.
             <br /> My skills include:
           </p> */}
-          <ul className="list-disc list-inside text-lg leading-10">
+          <ul className="list-disc list-inside text-lg leading-10 dark:text-white">
             <li>
               <strong>Technical Expertise: </strong> Proficient in a wide range
               of web technologies and frameworks.
             </li>
             <li>
-              <strong>Backend Development:</strong> Building robust and scalable
-              server-side applications using PHP and Node.js, along with
-              databases such as MySQL and MongoDB.
+              <strong>Backend Development: </strong> Building robust and
+              scalable server-side applications using PHP and Node.js, along
+              with databases such as MySQL and MongoDB.
             </li>
             <li>
-              <strong>Full Stack Solutions:</strong> Integrating frontend and
+              <strong>Full Stack Solutions: </strong> Integrating frontend and
               backend technologies to create seamless, end-to-end web
               applications that deliver a great user experience.
             </li>

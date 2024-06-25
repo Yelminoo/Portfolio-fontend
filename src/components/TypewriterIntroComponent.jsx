@@ -1,76 +1,76 @@
 import { useState, useEffect } from "react";
 import "./TypewriterStyle.css";
 
-const SvgWithImageOverlay = () => {
-  return (
-    <div className="container relative mt-16 overflow-hidden scale-[2] md:scale-125">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        {/* Define the shadow filter */}
-        <defs>
-          <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow
-              dx="2"
-              dy="2"
-              stdDeviation="4"
-              floodColor="#000000"
-              floodOpacity="0.4"
-            />
-          </filter>
-        </defs>
+// const SvgWithImageOverlay = () => {
+//   return (
+//     <div className="container relative mt-16 overflow-hidden scale-[2] md:scale-125">
+//       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+//         {/* Define the shadow filter */}
+//         <defs>
+//           <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+//             <feDropShadow
+//               dx="2"
+//               dy="2"
+//               stdDeviation="4"
+//               floodColor="#000000"
+//               floodOpacity="0.4"
+//             />
+//           </filter>
+//         </defs>
 
-        {/* Define the gradient */}
-        <defs>
-          <linearGradient id="gradient" x1="1%" y1="50%" x2="60%" y2="60%">
-            <stop offset="0%" stopColor="#fefefe" />
-            <stop offset="100%" stopColor="#0c0079" />
-          </linearGradient>
-          <linearGradient id="gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#d8d8de" />
-            <stop offset="100%" stopColor="#fcfcff" />
-          </linearGradient>
-        </defs>
-        <path
-          fill="url(#gradient-1)"
-          filter="url(#drop-shadow)"
-          d="M44.6,-14.6C52,8.1,48,34.4,32.9,45.4C17.8,56.5,-8.5,52.2,-28.4,38C-48.2,23.9,-61.6,-0.3,-55.8,-20.9C-50,-41.5,-25,-58.7,-3.2,-57.6C18.6,-56.6,37.3,-37.4,44.6,-14.6Z"
-          transform="translate(85 80)"
-        />
+//         {/* Define the gradient */}
+//         <defs>
+//           <linearGradient id="gradient" x1="1%" y1="50%" x2="60%" y2="60%">
+//             <stop offset="0%" stopColor="#fefefe" />
+//             <stop offset="100%" stopColor="#0c0079" />
+//           </linearGradient>
+//           <linearGradient id="gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+//             <stop offset="0%" stopColor="#d8d8de" />
+//             <stop offset="100%" stopColor="#fcfcff" />
+//           </linearGradient>
+//         </defs>
+//         <path
+//           fill="url(#gradient-1)"
+//           filter="url(#drop-shadow)"
+//           d="M44.6,-14.6C52,8.1,48,34.4,32.9,45.4C17.8,56.5,-8.5,52.2,-28.4,38C-48.2,23.9,-61.6,-0.3,-55.8,-20.9C-50,-41.5,-25,-58.7,-3.2,-57.6C18.6,-56.6,37.3,-37.4,44.6,-14.6Z"
+//           transform="translate(85 80)"
+//         />
 
-        <path
-          fill="url(#gradient-1)"
-          filter="url(#drop-shadow)"
-          d="M55.2,-19.1C62.2,3.8,52.3,31.1,35,42.3C17.6,53.5,-7.1,48.7,-29.7,33.9C-52.4,19.1,-72.9,-5.6,-67.6,-26.2C-62.3,-46.7,-31.2,-63,-3.6,-61.8C24.1,-60.7,48.1,-42.1,55.2,-19.1Z"
-          transform="translate(100 85)"
-        />
-        <path
-          fill="url(#gradient)"
-          d="M55.2,-19.1C62.2,3.8,52.3,31.1,35,42.3C17.6,53.5,-7.1,48.7,-29.7,33.9C-52.4,19.1,-72.9,-5.6,-67.6,-26.2C-62.3,-46.7,-31.2,-63,-3.6,-61.8C24.1,-60.7,48.1,-42.1,55.2,-19.1Z"
-          transform="translate(100 85) scale(0.99)"
-        />
-        <defs>
-          <clipPath id="clip-path">
-            {/* Define the shape of the clipping path */}
-            <path
-              fill="#FF0066"
-              d="M55.2,-19.1C62.2,3.8,52.3,31.1,35,42.3C17.6,53.5,-7.1,48.7,-29.7,33.9C-52.4,19.1,-72.9,-5.6,-67.6,-26.2C-62.3,-46.7,-31.2,-63,-3.6,-61.8C24.1,-60.7,48.1,-42.1,55.2,-19.1Z"
-              transform="translate(100 85) scale(0.99)"
-            />
-          </clipPath>
-        </defs>
-        <image
-          href="/image/YMO photo-transparent.png"
-          clipPath="url(#clip-path)"
-          x="45"
-          y="15"
-          width="50%"
-          height="60%"
-          preserveAspectRatio="xMidYMin slice"
-          style={{ objectFit: "cover", objectPosition: "center top" }}
-        />
-      </svg>
-    </div>
-  );
-};
+//         <path
+//           fill="url(#gradient-1)"
+//           filter="url(#drop-shadow)"
+//           d="M55.2,-19.1C62.2,3.8,52.3,31.1,35,42.3C17.6,53.5,-7.1,48.7,-29.7,33.9C-52.4,19.1,-72.9,-5.6,-67.6,-26.2C-62.3,-46.7,-31.2,-63,-3.6,-61.8C24.1,-60.7,48.1,-42.1,55.2,-19.1Z"
+//           transform="translate(100 85)"
+//         />
+//         <path
+//           fill="url(#gradient)"
+//           d="M55.2,-19.1C62.2,3.8,52.3,31.1,35,42.3C17.6,53.5,-7.1,48.7,-29.7,33.9C-52.4,19.1,-72.9,-5.6,-67.6,-26.2C-62.3,-46.7,-31.2,-63,-3.6,-61.8C24.1,-60.7,48.1,-42.1,55.2,-19.1Z"
+//           transform="translate(100 85) scale(0.99)"
+//         />
+//         <defs>
+//           <clipPath id="clip-path">
+//             {/* Define the shape of the clipping path */}
+//             <path
+//               fill="#FF0066"
+//               d="M55.2,-19.1C62.2,3.8,52.3,31.1,35,42.3C17.6,53.5,-7.1,48.7,-29.7,33.9C-52.4,19.1,-72.9,-5.6,-67.6,-26.2C-62.3,-46.7,-31.2,-63,-3.6,-61.8C24.1,-60.7,48.1,-42.1,55.2,-19.1Z"
+//               transform="translate(100 85) scale(0.99)"
+//             />
+//           </clipPath>
+//         </defs>
+//         <image
+//           href="/image/YMO photo-transparent.png"
+//           clipPath="url(#clip-path)"
+//           x="45"
+//           y="15"
+//           width="50%"
+//           height="60%"
+//           preserveAspectRatio="xMidYMin slice"
+//           style={{ objectFit: "cover", objectPosition: "center top" }}
+//         />
+//       </svg>
+//     </div>
+//   );
+// };
 
 function TypewriterIntroComponent() {
   // const [text, setText] = useState("");
@@ -144,8 +144,7 @@ function TypewriterIntroComponent() {
       <div
         className="absolute top-0 left-0 w-full h-full overflow-y-clip glassmorphism"
         style={{
-          background:
-            "linear-gradient(180deg,hsl(240deg 11% 85%) 0%,hsl(224deg 31% 85%) 2%,hsl(213deg 54% 85%) 5%,hsl(205deg 73% 83%) 7%,hsl(199deg 84% 80%) 10%, hsl(192deg 86% 77%) 13%,hsl(186deg 81% 72%) 16%,hsl(179deg 72% 67%) 20%,hsl(171deg 75% 67%) 24%,hsl(161deg 76% 68%) 29%,hsl(146deg 73% 71%) 34%,hsl(121deg 67% 75%) 41%,hsl(120deg 67% 78%) 52%,hsl(119deg 67% 80%) 69%,hsl(118deg 68% 82%) 79%,hsl(118deg 68% 84%) 84%,hsl(117deg 68% 87%) 88%,hsl(117deg 69% 89%) 91%,hsl(116deg 69% 91%) 93%,hsl(116deg 70% 93%) 95%,hsl(116deg 70% 96%) 97%,hsl(115deg 71% 98%) 99%,hsl(0deg 0% 100%) 100%)",
+          background: "black",
         }}
       >
         <img
@@ -155,9 +154,9 @@ function TypewriterIntroComponent() {
         />
       </div>
       <div className="glassmorphism w-full h-full">
-        <div className=" flex z-30 w-full pt-20  h-full items-center flex-col md:flex-row flex-grow max-w-[100rem] m-auto">
-          <div className="relative w-1/3 sm:w-1/2 md:w-1/3 h-full sm:h-auto flex items-center">
-            {/* <SvgWithImageOverlay /> */}
+        <div className=" flex z-30 w-full pt-20  h-full items-center flex-col lg:flex-row flex-grow max-w-[100rem] m-auto">
+          <div className="relative w-1/3 sm:w-1/2 md:w-1/3 min-w-[300px] h-full sm:h-auto flex lg:self-end">
+            
             <img
               src="/image/YMO photo-transparent.png"
               style={{ objectFit: "cover", objectPosition: "center top" }}

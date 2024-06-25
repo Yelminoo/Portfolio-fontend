@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 const SocialButton = ({ icon, link }) => {
   return (
     <div className="hover:scale-125 transition-all cursor-pointer">
-      <a href={link} className=""></a>
-      {icon}
+      <a href={link} className="">
+        {icon}
+      </a>
     </div>
   );
 };
@@ -44,6 +45,15 @@ const SocialButtonGroup = () => {
           ></i>
         }
         link={"https://github.com/Yelminoo"}
+      />
+      <SocialButton
+        icon={
+          <i
+            className="fa-solid fa-envelope fa-2xl"
+            style={{ color: "red" }}
+          ></i>
+        }
+        link={"mailto: yelminoo2015@gmail.com"}
       />
     </div>
   );
