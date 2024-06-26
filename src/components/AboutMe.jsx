@@ -35,7 +35,7 @@ function AboutMe() {
         </div>
       </div>
       <div className="w-full flex flex-col md:flex-row items-start py-20 px-32 gap-10">
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2">
           <h3 className="text-xl font-medium dark:text-white">
             <span className="text-4xl ">&#x2192;</span> What I do
           </h3>
@@ -65,7 +65,7 @@ function AboutMe() {
             </li>
           </ul>
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2">
           <h3 className="text-xl font-medium dark:text-white">
             <span className="text-4xl ">&#x2192;</span> Why Choose Me?
           </h3>
