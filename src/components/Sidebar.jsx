@@ -32,8 +32,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   );
 };
 Sidebar.propTypes = {
-  isOpen: PropTypes.boolean, // or another appropriate type
-  toggleSidebar: PropTypes.boolean,
+  isOpen: PropTypes.bool, // or another appropriate type
+  toggleSidebar: PropTypes.func,
 };
 
 export default Sidebar;

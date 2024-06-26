@@ -22,7 +22,7 @@ function AboutMe() {
             <div className="absolute left-[0%] top-[0%] z-40 w-full rounded-full overflow-y-hidden glassmorphism bg-gray-50 border-2 border-gray-200">
               <img
                 className=""
-                src="/image/YMO photo-transparent.png"
+                src="/image/YMO-photo-transparent.png"
                 style={{
                   objectFit: "cover",
                   objectPosition: "center bottom",

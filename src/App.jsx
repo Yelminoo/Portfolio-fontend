@@ -163,7 +163,7 @@ function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
+    setSidebarOpen((prev) => !prev);
   };
 
   return (
@@ -171,7 +171,7 @@ function App() {
       <main className="main-content bg-teal-50 dark:bg-neutral-800 ">
         <header className="fixed w-full top-5 z-30 ">
           <div className="relative overflow-clip rounded-full w-4/6 max-w-[100rem] m-auto">
-            <nav className="m-auto rounded-full bg-slate-600/60 dark:bg-black/50 text-white flex items-center justify-between border-double border-2 border-gray-500 shadow-lg backdrop-blur-sm ">
+            <nav className="m-auto w-full rounded-full bg-slate-600/60 dark:bg-black/50 text-white flex items-center justify-between border-double border-2 border-gray-500 shadow-lg backdrop-blur-sm ">
               <div className="flex w-full items-center justify-between  m-auto">
                 <div className="sm:w-[20%] md:w-[10%]">
                   <img
@@ -256,13 +256,13 @@ function App() {
           <AboutMe />
         </section>
 
-        <div className="blob-container w-full">
+        {/* <div className="blob-container w-full">
           {/* <div className="circle d1" style={{ animationDelay: "-14s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-13s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-12s" }}></div>
           <div className="circle d1" style={{ animationDelay: "-11s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-10s" }}></div>
-          <div className="circle d3" style={{ animationDelay: "-9s" }}></div> */}
+          <div className="circle d3" style={{ animationDelay: "-9s" }}></div> 
           <div className="circle d1" style={{ animationDelay: "-8s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-7s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-6s" }}></div>
@@ -272,8 +272,8 @@ function App() {
           <div className="circle d1" style={{ animationDelay: "-2s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-1s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-0s" }}></div>
-          {/*  */}
-        </div>
+        
+        </div> */}
 
         <section
           className="w-full"

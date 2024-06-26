@@ -1,5 +1,5 @@
 // import React from "react";
-import PropTypes, { object } from "prop-types";
+import PropTypes from "prop-types";
 
 const SkilBox = ({
   gradientBg = "white",
@@ -51,7 +51,7 @@ const SkilBox = ({
   );
 };
 SkilBox.propTypes = {
-  icon: PropTypes.elementType | object, // or another appropriate type
+  icon: PropTypes.object, // or another appropriate type
   gradientBg: PropTypes.string,
   text: PropTypes.string,
   color: PropTypes.string,
@@ -187,7 +187,9 @@ function SkillCard() {
             "linear-gradient(99deg, rgba(113,113,113,0.7) 45%, #74C0FC 88%)"
           }
           text={"Tailwind"}
-          icon={<img src="/image/tailwind.png" style={{ width: "1.5rem" }}></img>}
+          icon={
+            <img src="/image/tailwind.png" style={{ width: "1.5rem" }}></img>
+          }
           progressColor={"#74C0FC"}
           progressValue="90%"
         />
