@@ -13,6 +13,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding: 6rem 0 0 0;
 }
 
 button {
@@ -113,15 +114,15 @@ button .slow-ripple-effect {
 }
 
 .showcase-box {
-  /* animation: slide-in linear;
+  animation: slide-in linear;
   animation-timeline: view();
-  animation-range: entry -10%; */
+  animation-range: entry -10%;
 }
 
 .skill-card {
-  /* animation: fade-in linear;
+  animation: fade-in linear;
   animation-timeline: view();
-  animation-range: entry -50%; */
+  animation-range: entry -50%;
 }
 
 @keyframes fade-in {
@@ -146,14 +147,15 @@ button .slow-ripple-effect {
   }
 }
 
-.header-image {
+/* .header-image {
   transform-origin: center;
   opacity: 1;
   scale: 1;
-  /* animation: header-animation linear forwards;
+  animation: header-animation linear forwards;
   animation-timeline: view();
-  animation-range: entry exit; */
-}
+  animation-range: entry exit;
+  will-change: opacity, transform;
+} */
 
 @keyframes header-animation {
   0% {
@@ -178,7 +180,7 @@ button .slow-ripple-effect {
   }
 }
 
-.matrix-rain {
+/* .matrix-rain {
   position: absolute;
   top: 0;
   left: 0;
@@ -186,7 +188,7 @@ button .slow-ripple-effect {
   height: 100%;
   background-color: black;
   z-index: -1;
-}
+} */
 
 .floating-ui {
   position: fixed;
@@ -277,7 +279,7 @@ button .slow-ripple-effect {
 
 .fancy:hover::before {
   display: block;
-  /* animation: rotate 2s linear infinite; */
+  animation: rotate 2s linear infinite;
 }
 
 /* Overlay */
@@ -346,9 +348,10 @@ button .slow-ripple-effect {
 
   animation: bg-spin 3s linear infinite;
 
-  /* &:hover {
+  &:hover {
     animation-play-state: paused;
-  } */
+  }
+  will-change: transform;
 }
 
 @keyframes bg-spin {
@@ -392,7 +395,7 @@ button .slow-ripple-effect {
   gap: 1rem;
 }
 .scroller[data-animated="true"] {
-  width: max-content;
+  width: 100%;
   border: 5px solid rgb(146, 156, 146);
   overflow: hidden;
   mask: linear-gradient(90deg, transparent, gray 20%, gray 80%, transparent);
@@ -407,7 +410,8 @@ button .slow-ripple-effect {
 
 .scroller[data-animated="true"] .scroller_inner {
   flex-wrap: nowrap;
-  /* animation: scroll 15s linear infinite; */
+  animation: scroll 15s linear infinite;
+  will-change: transform;
 }
 
 @keyframes scroll {
@@ -439,8 +443,9 @@ button .slow-ripple-effect {
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   overflow: hidden;
   animation: morph 4s linear infinite,
-    scaleIn 15s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+    scaleIn 25s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
   position: absolute;
+  will-change: transform, border-radius;
 }
 .d1 {
   opacity: 0.5;

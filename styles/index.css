@@ -17,6 +17,11 @@
 @layer utilities {
   .neon-text {
     text-shadow: 5px 5px 10px rgb(155, 155, 155);
+    color: rgb(0, 0, 0);
+  }
+
+  .dark-neon-text {
+    text-shadow: 5px 5px 10px rgb(155, 155, 155);
     color: rgb(244, 244, 244);
   }
   /* .animate-finite-pulse {

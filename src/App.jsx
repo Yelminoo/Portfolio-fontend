@@ -13,65 +13,6 @@ import AboutMe from "./components/AboutMe";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  // const createRaindrop = useCallback(() => {
-  //   const dropContainer = document.createElement("rain-div");
-  //   dropContainer.classList.add("drop-container");
-  //   dropContainer.style.left = `${Math.random() * 100}%`;
-  //   document.querySelector(".matrix-rain").appendChild(dropContainer);
-
-  //   const columnCount = Math.floor(Math.random() * 3) + 5; // Random number of columns between 5 and 7
-
-  //   for (let i = 0; i < columnCount; i++) {
-  //     const column = document.createElement("div");
-  //     column.classList.add("column");
-  //     dropContainer.appendChild(column);
-
-  //     const rowCount = Math.floor(Math.random() * 10) + 5; // Random number of rows between 5 and 14
-  //     const characters = generateRandomJapaneseCharacters(rowCount);
-
-  //     for (let j = 0; j < rowCount; j++) {
-  //       const drop = document.createElement("span");
-  //       drop.classList.add("drop");
-  //       drop.innerText = characters[j];
-  //       drop.style.animationDelay = `${Math.random() * 5}s`; // Random animation delay
-  //       column.appendChild(drop);
-  //     }
-  //   }
-
-  //   // Add event listener for animation end
-  //   // dropContainer.addEventListener("animationend", () => {
-  //   //   // Remove the raindrop element from the DOM
-  //   //   // dropContainer.style.opacity = 0;
-  //   //   // setTimeout(() => {
-  //   //   //   dropContainer.remove();
-  //   //   // }, 1000);
-  //   // });
-  // }, []);
-
-  // const createRaindrops = useCallback(() => {
-  //   const dropCount = 30;
-
-  //   for (let i = 0; i < dropCount; i++) {
-  //     setTimeout(createRaindrop, Math.random() * 5000); // Delay the creation of each raindrop
-  //   }
-  // }, [createRaindrop]);
-
-  // function generateRandomJapaneseCharacters(count) {
-  //   const characters =
-  //     "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん";
-  //   const randomCharacters = [];
-  //   for (let i = 0; i < count; i++) {
-  //     const randomIndex = Math.floor(Math.random() * characters.length);
-  //     randomCharacters.push(characters.charAt(randomIndex));
-  //   }
-  //   return randomCharacters;
-  // }
-  // useEffect(() => {
-  //   let raindropInterval = setInterval(() => {
-  //     createRaindrops();
-  //   }, 2000);
-  //   return () => clearInterval(raindropInterval);
-  // }, [createRaindrops]);
 
   const [darkMode, setDarkMode] = useState(false);
 
@@ -211,15 +152,12 @@ function App() {
                   <button onClick={toggleSidebar} className="text-white">
                     <i className="fa-solid fa-bars "></i>
                   </button>
-                  <Sidebar
-                    isOpen={isSidebarOpen}
-                    toggleSidebar={toggleSidebar}
-                  />
                 </div>
               </div>
               <div className="scroll-watcher"></div>
             </nav>
           </div>
+          <Sidebar isOpen={isSidebarOpen} navLists={navLists} toggleSidebar={toggleSidebar} />
         </header>
 
         <section
@@ -231,7 +169,7 @@ function App() {
             }
           }
         >
-          <div className="w-full min-h-[100vh]">
+          <div className="w-full  ">
             <TypewriterIntroComponent />
 
             {/* <img src="/image/banner.jpg" className="w-full header-image" /> */}
@@ -257,12 +195,12 @@ function App() {
         </section>
 
         {/* <div className="blob-container w-full">
-          {/* <div className="circle d1" style={{ animationDelay: "-14s" }}></div>
+          <div className="circle d1" style={{ animationDelay: "-14s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-13s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-12s" }}></div>
           <div className="circle d1" style={{ animationDelay: "-11s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-10s" }}></div>
-          <div className="circle d3" style={{ animationDelay: "-9s" }}></div> 
+          <div className="circle d3" style={{ animationDelay: "-9s" }}></div>
           <div className="circle d1" style={{ animationDelay: "-8s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-7s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-6s" }}></div>
@@ -272,7 +210,6 @@ function App() {
           <div className="circle d1" style={{ animationDelay: "-2s" }}></div>
           <div className="circle d2" style={{ animationDelay: "-1s" }}></div>
           <div className="circle d3" style={{ animationDelay: "-0s" }}></div>
-        
         </div> */}
 
         <section
@@ -296,7 +233,7 @@ function App() {
             backdropFilter: "blur(10px)",
           }}
         >
-          {" "}
+         
           <SkillParallax />{" "}
         </section>
 
