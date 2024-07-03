@@ -1,7 +1,7 @@
 function AboutMe() {
   return (
     <>
-      <div className="w-full backdrop-blur-sm flex flex-col md:flex-row gap-5 items-center py-20 px-20 md:px-32">
+      <div className="w-full backdrop-blur-sm flex flex-col md:flex-row gap-5 items-center py-20 px-10 md:px-32">
         <p className="text-xl dark:text-white text-gray-700 pe-10">
           My journey into web development began with a fascination for how
           websites are built and function. This curiosity led me to dive deep
@@ -34,7 +34,7 @@ function AboutMe() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col md:flex-row items-start py-20  px-20 md:px-32 gap-10">
+      <div className="w-full flex flex-col md:flex-row items-start py-20  px-10 md:px-32 gap-10">
         <div className="w-full md:w-1/2">
           <h3 className="text-xl font-medium dark:text-white">
             <span className="text-4xl ">&#x2192;</span> What I do

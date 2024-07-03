@@ -160,14 +160,14 @@ function TypewriterIntroComponent() {
           alt="banner-img"
         /> */}
         <div className=" flex z-30 w-full pt-20  h-full items-center flex-col lg:flex-row flex-grow max-w-[100rem] m-auto">
-          <div className="relative w-1/3 sm:w-1/2 md:w-1/3 min-w-[300px] h-full sm:h-auto flex lg:self-end">
+          <div className="relative w-1/2 md:w-1/3 min-w-[200px] h-full sm:h-auto flex lg:self-end">
             <img
               src="/image/YMO-photo-transparent.png"
               className=" object-cover"
               alt="banner-img"
             />
           </div>
-          <div className="w-full p-2 h-full sm:w-4/6 md:w-3/5 typewriter-text flex justify-start items-center">
+          <div className="w-full p-2 h-full md:w-3/5 typewriter-text flex justify-start items-center">
             <div>
               <h1 className="block md:text-5xl text-3xl font-extralight dark:dark-neon-text neon-text my-8">
                 Hello I&apos;m <strong className="">Yel Min Oo</strong>

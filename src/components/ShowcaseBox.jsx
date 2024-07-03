@@ -17,11 +17,11 @@ const WebUIBox = ({
     <>
       <div className="flex gap-20 items-center justify-center md:justify-normal flex-wrap md:flex-nowrap my-5 ">
         <div
-          className={`showcase-box min-w-[320px]  w-2/4 min-h-12 bg-slate-200 dark:bg-transparent border-2 border-black hover:border-green-500 shadow-lg rounded-lg ${
+          className={`showcase-box min-w-[300px]  w-2/4 min-h-12 bg-slate-200 dark:bg-transparent border-2 border-black hover:border-green-500 shadow-lg rounded-lg ${
             boxPosition === "right" ? "order-2" : ""
           }`}
         >
-          <div className=" border rounded-lg  glassmorphism">
+          <div className=" border rounded-lg  glassmorphism ">
             <div className="p-2 flex gap-2 items-center justify-between ">
               <div className="flex gap-1">
                 <i
@@ -48,8 +48,8 @@ const WebUIBox = ({
               <img src={img} className="w-full " />
             </div>
 
-            <div className="p-2 flex items-center gap-5">
-              <i className="fa-solid fa-globe dark:text-white"></i>
+            <div className="p-2 flex items-center gap-5 overflow-hidden">
+              <i className="fa-solid fa-globe dark:text-white "></i>
               <a href={link}>
                 <p className="whitespace-nowrap text-ellipsis overflow-hidden underline dark:text-white">
                   {link}
@@ -230,7 +230,7 @@ function ShowcaseBox() {
           </div>
         }
       />
-      
+
       <AppUIBox
         title={"Aigma PTE Mobile (Android)"}
         img={"/image/aigma-mobile.png"}

@@ -62,7 +62,7 @@ SkilBox.propTypes = {
 function SkillCard() {
   return (
     <div className="flex">
-      <div className="flex gap-10 justify-center rounded-xl flex-wrap p-20 max-w-[100rem]  m-auto">
+      <div className="flex gap-10 justify-center rounded-xl flex-wrap p-5 md:p-20 max-w-[100rem]  m-auto">
         <SkilBox
           gradientBg={
             "linear-gradient(99deg, rgba(113,113,113,0.7) 45%, rgba(237,79,35,1) 88%)"

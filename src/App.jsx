@@ -157,7 +157,11 @@ function App() {
               <div className="scroll-watcher"></div>
             </nav>
           </div>
-          <Sidebar isOpen={isSidebarOpen} navLists={navLists} toggleSidebar={toggleSidebar} />
+          <Sidebar
+            isOpen={isSidebarOpen}
+            navLists={navLists}
+            toggleSidebar={toggleSidebar}
+          />
         </header>
 
         <section
@@ -233,7 +237,6 @@ function App() {
             backdropFilter: "blur(10px)",
           }}
         >
-         
           <SkillParallax />{" "}
         </section>
 
