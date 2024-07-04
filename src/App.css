@@ -203,8 +203,8 @@ button .slow-ripple-effect {
 
 .floating-ui {
   position: fixed;
-  bottom: 50%; /* Margin from the bottom */
-  left: 5%; /* Center horizontally */
+  /* Margin from the bottom */
+
   transform: translateX(-50%); /* Center alignment */
   display: flex;
   flex-direction: column;

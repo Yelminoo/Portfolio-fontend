@@ -55,22 +55,22 @@ function App() {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const section1 = document.querySelector(".intro-banner");
+  useEffect(() => {
+    const handleScroll = () => {
+      const section1 = document.querySelector(".intro-banner");
 
-  //     const section1End = section1.offsetTop + section1.offsetHeight;
+      const section1End = section1.offsetTop + section1.offsetHeight;
 
-  //     if (window.scrollY >= section1End) {
-  //       setIsVisible(true);
-  //     } else {
-  //       setIsVisible(false);
-  //     }
-  //   };
+      if (window.scrollY >= section1End) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLists = ["About Me", "Skill", "Projects", "Contact"];
 
@@ -301,7 +301,7 @@ function App() {
       <section
         className={`glassmorphism floating-ui ${
           isVisible ? "visible" : "hidden"
-        } bg-white/5 rounded-lg p-5 border-2 border-gray-400`}
+        } bg-white/5 rounded-lg p-5 border-2 border-gray-400 transition-all duration-300 bottom-[1%] left-[50%] md:left-[4%] md:bottom-[50%]`}
       >
         <button className="h-100 overflow-visible hover:scale-125">
           <a
