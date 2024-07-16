@@ -305,7 +305,7 @@ function App() {
       >
         <button className="h-100 overflow-visible hover:scale-125">
           <a
-            href={`${process.env.PUBLIC_URL}/resume/Yel Min Oo's Resume2.pdf`}
+            href={`${process.env.PUBLIC_URL}/resume/Yel Min Oo's Resume.pdf`}
             target="_blank"
             className=""
           >
