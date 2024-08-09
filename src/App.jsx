@@ -10,7 +10,7 @@ import Sidebar from "./components/Sidebar";
 import SocialButtonGroup from "./components/SocialButtonGroup";
 import ContactForm from "./components/ContactForm";
 import AboutMe from "./components/AboutMe";
-
+import { Analytics } from "@vercel/analytics/react";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -109,6 +109,7 @@ function App() {
 
   return (
     <>
+      <Analytics />
       <main className="main-content bg-teal-50 dark:bg-neutral-800 ">
         <header className="fixed w-full top-5 z-30 ">
           <div className="relative overflow-clip rounded-full w-4/6 max-w-[100rem] m-auto">
