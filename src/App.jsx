@@ -5,12 +5,16 @@ import FormModalBox from "./components/FormModalBox";
 import SkillCard from "./components/SkillCard";
 import SkillParallax from "./components/SkillParallax";
 import TypewriterIntroComponent from "./components/TypewriterIntroComponent";
-import ShowcaseBox from "./components/ShowcaseBox";
+// import ShowcaseBox from "./components/ShowcaseBox";
 import Sidebar from "./components/Sidebar";
 import SocialButtonGroup from "./components/SocialButtonGroup";
 import ContactForm from "./components/ContactForm";
 import AboutMe from "./components/AboutMe";
 import { Analytics } from "@vercel/analytics/react";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import ScrollSnapComponent from "./components/ScrollSnapComponent";
+gsap.registerPlugin(ScrollToPlugin);
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -37,7 +41,6 @@ function App() {
           window.scrollY < sectionTop + sectionHeight - sectionHeight / 3
         ) {
           current = section.getAttribute("id");
-          alert("current :" + current);
         }
       });
 
@@ -107,6 +110,17 @@ function App() {
     setSidebarOpen((prev) => !prev);
   };
 
+  const handleScrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const targetSection = document.getElementById(sectionId);
+
+    gsap.to(window, {
+      scrollTo: { y: targetSection.offsetTop, autoKill: false },
+      duration: 1, // Adjust the duration to your preference
+      ease: "power2.out", // You can change the easing function if needed
+    });
+  };
+
   return (
     <>
       <Analytics />
@@ -132,6 +146,9 @@ function App() {
                       <li key={index}>
                         <a
                           href={"#" + n.toLowerCase()}
+                          onClick={(e) =>
+                            handleScrollToSection(e, n.toLowerCase())
+                          }
                           className=" hover:underline mx-5 underline-offset-8 cursor-pointer font-opensans font-bold"
                         >
                           {n}
@@ -254,50 +271,49 @@ function App() {
             </h3>
             <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
           </div>
-          <ShowcaseBox />
-          <section
-            className="w-full p-0 m-0 border-0"
-            id="contact"
-            style={{
-              backdropFilter: "blur(10px)",
-            }}
-          >
-            <div className="text-center relative p-10 " style={{}}>
-              <h3 className="text-4xl text-black dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
-                Contact
-              </h3>
+        </section>
+        <ScrollSnapComponent />
+        <section
+          className="w-full p-0 m-0 border-0"
+          id="contact"
+          style={{
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <div className="text-center relative p-10 " style={{}}>
+            <h3 className="text-4xl text-black dark:text-white text  montserrat decoration-slate-500 underline-offset-8">
+              Contact
+            </h3>
 
-              <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
-            </div>
-            <div className="w-[80vw] max-w-[100rem] m-auto">
-              <div className="flex gap-5 w-full flex-col md:flex-row">
-                <div className="w-full md:w-1/2">
-                  <h4 className="text-3xl font-bold dark:text-white">
-                    Looking for talented web developers to join your team?
-                  </h4>
-                  <p className=" text-xl my-10 dark:text-white">
-                    Have a discussion with me{" "}
-                    <span className="hidden md:inline">&#x2192;</span>
-                    <span className="inline md:hidden">&#x2193;</span>
-                  </p>
-                </div>
-
-                <div className="w-full md:w-1/2">
-                  <ContactForm />
-                </div>
+            <p className="h-1 w-[5rem] bg-slate-800 inline-block dark:bg-white"></p>
+          </div>
+          <div className="w-[80vw] max-w-[100rem] m-auto">
+            <div className="flex gap-5 w-full flex-col md:flex-row">
+              <div className="w-full md:w-1/2">
+                <h4 className="text-3xl font-bold dark:text-white">
+                  Looking for talented web developers to join your team?
+                </h4>
+                <p className=" text-xl my-10 dark:text-white">
+                  Have a discussion with me{" "}
+                  <span className="hidden md:inline">&#x2192;</span>
+                  <span className="inline md:hidden">&#x2193;</span>
+                </p>
               </div>
 
-              <div className="py-20">
-                <h6 className="text-2xl dark:text-white">
-                  You can find me on :
-                </h6>
-                <SocialButtonGroup />
+              <div className="w-full md:w-1/2">
+                <ContactForm />
               </div>
             </div>
-          </section>
+
+            <div className="py-20">
+              <h6 className="text-2xl dark:text-white">You can find me on :</h6>
+              <SocialButtonGroup />
+            </div>
+          </div>
         </section>
       </main>
 
+      <p>scroll snap component</p>
       <FormModalBox isOpen={isOpen} setIsOpen={setIsOpen} />
       <section
         className={`glassmorphism floating-ui ${

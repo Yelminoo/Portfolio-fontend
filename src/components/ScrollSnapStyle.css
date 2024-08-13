@@ -1,0 +1,38 @@
+/* src/HorizontalScrollPage.css */
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 400vw; /* 4 sections x 100vw each */
+}
+
+.section {
+  flex: 0 0 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 2rem;
+  color: white;
+}
+
+.section:nth-child(1) {
+  background-color: #738dbf;
+}
+
+.section:nth-child(2) {
+  background-color: #16d7ff;
+}
+
+.section:nth-child(3) {
+  background-color: #ebf939;
+}
+
+.section:nth-child(4) {
+  background-color: #75baf3;
+}

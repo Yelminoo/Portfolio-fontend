@@ -1,6 +1,9 @@
 // import React from "react";
+import gsap from "gsap";
 import PropTypes from "prop-types";
-
+import { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 const SkilBox = ({
   gradientBg = "white",
   icon,
@@ -10,7 +13,7 @@ const SkilBox = ({
 }) => {
   return (
     <div
-      className="skill-card glassmorphism rounded-lg"
+      className="skillcard glassmorphism rounded-lg"
       style={{
         minWidth: "250px",
 
@@ -60,8 +63,50 @@ SkilBox.propTypes = {
 };
 
 function SkillCard() {
+  const containerRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray(".skillcard"); // Select all elements with the 'card' class
+      console.log(cards);
+      gsap.from(cards, {
+        opacity: 0,
+        scale: 0.5,
+        duration: 2.5,
+        stagger: 0.4, // Stagger the animation by 0.2 seconds
+        scrollTrigger: {
+          trigger: cards, // Trigger the animation when this element enters the viewport
+          start: "top 80%", // Start the animation when the top of the trigger hits 80% from the top of the viewport
+
+          toggleActions: "play none reverse reset",
+          scrub: 0.5,
+          invalidateOnRefresh: true,
+        },
+
+        ease: "easeOut", // Easing function for smooth animation
+      });
+
+      // cards.forEach((card) => {
+      //   gsap.from(card, {
+      //     opacity: 0,
+      //     scale: 0.5,
+      //     duration: 1,
+      //     scrollTrigger: {
+      //       trigger: card, // Each card triggers its own animation
+      //       start: "top 90%", // Animation starts when the top of the card is 80% from the top of the viewport
+      //       toggleActions: "play none reverse reset",
+      //       scrub: 1,
+      //       invalidateOnRefresh: true,
+      //     },
+      //     ease: "easeOut", // Easing function for smooth animation
+      //   });
+      // });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <div className="flex">
+    <div className="flex" ref={containerRef}>
       <div className="flex gap-10 justify-center rounded-xl flex-wrap p-5 md:p-20 max-w-[100rem]  m-auto">
         <SkilBox
           gradientBg={
