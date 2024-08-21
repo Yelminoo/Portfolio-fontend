@@ -27,7 +27,7 @@ const HorizontalScrollPage = () => {
             duration: { min: 0.2, max: 0.6 }, // Adjust snap duration
             ease: "power1.inOut",
           },
-          end: () => "+=5000", // Extended scroll end for slower effect
+          end: () => "+=2000", // Extended scroll end for slower effect
           onUpdate: (self) => {
             sections.forEach((section, index) => {
               const progress = self.progress * (sections.length - 1) - index;
@@ -72,7 +72,6 @@ const HorizontalScrollPage = () => {
         />
       </div>
       <div className="section">
-        {" "}
         <WebUIBox
           title={"Smart Eduglobe"}
           img={"/image/ismart-site.png"}
@@ -114,6 +113,29 @@ const HorizontalScrollPage = () => {
               <img src="/image/next-js.png" style={{ width: "5rem" }}></img>
               <img src="/image/express.png" style={{ width: "2rem" }}></img>
               <img src="/image/mongo.png" style={{ width: "2rem" }}></img>
+            </div>
+          }
+        />
+      </div>
+      <div className="section">
+        <WebUIBox
+          title={"Three js Site"}
+          img={"/image/three-js-site.png"}
+          boxPosition="left"
+          link="https://threejs-ai-two.vercel.app/"
+          description={
+            "Using the power of Three.js, we bring you a unique platform where you can customize and design your very own shirts in real time"
+          }
+          programmingIcon={
+            <div className="flex gap-5">
+              <img
+                src="/image/threejs-logo.png"
+                style={{ width: "3rem" }}
+              ></img>
+              <i
+                className="fa-brands fa-square-js fa-2xl"
+                style={{ color: "#e8d92b", marginTop: "1rem" }}
+              />
             </div>
           }
         />

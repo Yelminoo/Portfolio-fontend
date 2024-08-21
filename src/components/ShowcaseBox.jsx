@@ -70,7 +70,7 @@ export const WebUIBox = ({
               {description}
             </p>
           </div>
-          <div className="flex flex-wrap my-5">
+          <div className="flex flex-wrap my-10 items-center">
             <>{programmingIcon}</>
           </div>
         </div>
