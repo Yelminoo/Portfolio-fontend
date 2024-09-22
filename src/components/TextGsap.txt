@@ -8,13 +8,14 @@ const ScrollDemo = () => {
   const containerRef = useRef(null);
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
-  // const bgRef1 = useRef(null);
-  // const bgRef2 = useRef(null);
+  const bgRef1 = useRef(null);
+  const bgRef2 = useRef(null);
+
   // State to manage positioning
   const [isFixed, setIsFixed] = useState(false); // Start as relative
 
   useEffect(() => {
-    const animationDuration = 3000; // Duration of animation (scroll length)
+    const animationDuration = 2000; // Duration of animation (scroll length)
     const vhPerSecond = window.innerHeight; // Full viewport height
     const containerHeight = Math.max(animationDuration, vhPerSecond);
     containerRef.current.style.height = `${containerHeight}px`;
@@ -25,6 +26,7 @@ const ScrollDemo = () => {
       scrub: 1.5, // Adjust scrub for smoother animation
       pin: true,
       pinSpacing: false,
+      invalidateOnRefresh: true,
       onEnter: () => {
         setIsFixed(true); // Set to fixed when entering
       },
@@ -38,36 +40,11 @@ const ScrollDemo = () => {
         setIsFixed(true); // Set to fixed when entering back
       },
     };
-    // Background animations for bgRef1
-    // gsap.fromTo(
-    //   bgRef1.current,
-    //   { x: "0vw" },
-    //   {
-    //     x: "-100vw",
-    //     scrollTrigger: {
-    //       ...scrollTriggerOptions,
-    //       trigger: textRef1.current,
-    //     },
-    //   }
-    // );
-
-    // // Background animations for bgRef2
-    // gsap.fromTo(
-    //   bgRef2.current,
-    //   { x: "0vw" },
-    //   {
-    //     x: "100vw",
-    //     scrollTrigger: {
-    //       ...scrollTriggerOptions,
-    //       trigger: textRef2.current,
-    //     },
-    //   }
-    // );
 
     // Animate text 1
     gsap.fromTo(
       textRef1.current,
-      { x: "0vw", immediateRender: false }, // Start off-screen
+      { x: "0vw", immediateRender: true },
       {
         x: "-130vw",
         scrollTrigger: {
@@ -80,9 +57,35 @@ const ScrollDemo = () => {
     // Animate text 2
     gsap.fromTo(
       textRef2.current,
-      { x: "0vw", immediateRender: false }, // Start off-screen
+      { x: "0vw", immediateRender: true },
       {
         x: "130vw",
+        scrollTrigger: {
+          ...scrollTriggerOptions,
+          trigger: textRef2.current,
+        },
+      }
+    );
+
+    // Background animations for bgRef1
+    gsap.fromTo(
+      bgRef1.current,
+      { x: "0vw" },
+      {
+        x: "-100vw",
+        scrollTrigger: {
+          ...scrollTriggerOptions,
+          trigger: textRef1.current,
+        },
+      }
+    );
+
+    // Background animations for bgRef2
+    gsap.fromTo(
+      bgRef2.current,
+      { x: "0vw" },
+      {
+        x: "100vw",
         scrollTrigger: {
           ...scrollTriggerOptions,
           trigger: textRef2.current,
@@ -97,28 +100,39 @@ const ScrollDemo = () => {
   }, []);
 
   return (
-    <div className="relative">
-      <div ref={containerRef} className={`relative bg-white text-white`}>
+    <div>
+      <div
+        ref={containerRef}
+        className={`relative bg-white text-white ${
+          isFixed ? "fixed" : "relative"
+        }`}
+      >
         {/* First Text Section with Background */}
         <div
-          className={`fixed w-full h-screen flex justify-center items-center pointer-events-none z-10`}
+          className={`fixed w-full h-screen flex justify-center  items-center pointer-events-none z-10`}
         >
-          {/* <div ref={bgRef1} className={`inset-0 bg-black z-20 `}></div>
-          <div ref={bgRef2} className={`inset-0 bg-black z-10 `}></div> */}
           <div
-            ref={textRef1}
-            className={`absolute md:text-9xl sm:text-3xl font-bold text-black whitespace-nowrap z-40 ${
+            ref={bgRef1}
+            className={`absolute inset-0 bg-black z-20 ${
               isFixed ? "fixed" : "relative"
             }`}
+          ></div>
+          <div
+            ref={bgRef2}
+            className={`absolute inset-0 bg-black z-10 ${
+              isFixed ? "fixed" : "relative"
+            }`}
+          ></div>
+          <div
+            ref={textRef1}
+            className="absolute md:text-9xl sm:text-3xl font-bold text-white whitespace-nowrap z-40"
           >
             W E L C O M E
           </div>
 
           <div
             ref={textRef2}
-            className={`absolute md:text-9xl sm:text-3xl font-bold text-black whitespace-nowrap z-40 ${
-              isFixed ? "fixed" : "relative"
-            }`}
+            className="absolute md:text-9xl sm:text-3xl font-bold text-white whitespace-nowrap z-50"
           >
             E M O C L E W
           </div>

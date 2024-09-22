@@ -14,7 +14,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import ScrollSnapComponent from "./components/ScrollSnapComponent";
-import Demo from "./components/GsapTest";
+// import Demo from "./components/GsapTest";
 import ScrollDemo from "./components/TextGsap";
 gsap.registerPlugin(ScrollToPlugin);
 function App() {
