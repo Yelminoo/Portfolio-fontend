@@ -14,6 +14,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import ScrollSnapComponent from "./components/ScrollSnapComponent";
+import Demo from "./components/GsapTest";
+import ScrollDemo from "./components/TextGsap";
 gsap.registerPlugin(ScrollToPlugin);
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -124,6 +126,7 @@ function App() {
   return (
     <>
       <Analytics />
+      <ScrollDemo />
       <main className="main-content bg-teal-50 dark:bg-neutral-800 ">
         <header className="fixed w-full top-5 z-30 ">
           <div className="relative overflow-clip rounded-full w-4/6 max-w-[100rem] m-auto">
@@ -344,6 +347,8 @@ function App() {
           ></i>
         </button> */}
       </section>
+      {/* <Demo /> */}
+
       <footer className="h-[4rem] p-5 bg-black ">
         <div className=" flex px-10 max-w-[100rem] justify-between items-center">
           <h6 className="text-sm md:text-lg text-white">Powered by YMO dev.</h6>
