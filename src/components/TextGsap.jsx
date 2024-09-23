@@ -8,10 +8,11 @@ const ScrollDemo = () => {
   const containerRef = useRef(null);
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
-  // const bgRef1 = useRef(null);
-  // const bgRef2 = useRef(null);
+  const bgRef1 = useRef(null);
+  const bgRef2 = useRef(null);
+
   // State to manage positioning
-  const [isFixed, setIsFixed] = useState(false); // Start as relative
+  const [isFixed, setIsFixed] = useState(false);
 
   useEffect(() => {
     const animationDuration = 3000; // Duration of animation (scroll length)
@@ -19,76 +20,80 @@ const ScrollDemo = () => {
     const containerHeight = Math.max(animationDuration, vhPerSecond);
     containerRef.current.style.height = `${containerHeight}px`;
 
-    const scrollTriggerOptions = {
-      start: "top center", // Delay the start until the element is in the center of the viewport
-      end: "+=3000", // Control how long the pinning lasts
-      scrub: 1.5, // Adjust scrub for smoother animation
-      pin: true,
-      pinSpacing: false,
-      onEnter: () => {
-        setIsFixed(true); // Set to fixed when entering
-      },
-      onLeave: () => {
-        setIsFixed(false); // Set to relative when leaving
-      },
-      onLeaveBack: () => {
-        setIsFixed(true); // Set to fixed when scrolling back in
-      },
-      onEnterBack: () => {
-        setIsFixed(true); // Set to fixed when entering back
-      },
-    };
-    // Background animations for bgRef1
-    // gsap.fromTo(
-    //   bgRef1.current,
-    //   { x: "0vw" },
-    //   {
-    //     x: "-100vw",
-    //     scrollTrigger: {
-    //       ...scrollTriggerOptions,
-    //       trigger: textRef1.current,
-    //     },
-    //   }
-    // );
+    // Ensure that text and background have separate ScrollTrigger instances
 
-    // // Background animations for bgRef2
-    // gsap.fromTo(
-    //   bgRef2.current,
-    //   { x: "0vw" },
-    //   {
-    //     x: "100vw",
-    //     scrollTrigger: {
-    //       ...scrollTriggerOptions,
-    //       trigger: textRef2.current,
-    //     },
-    //   }
-    // );
-
-    // Animate text 1
+    // Text animation for textRef1 (moves left)
     gsap.fromTo(
       textRef1.current,
-      { x: "0vw", immediateRender: false }, // Start off-screen
+      { x: "0vw", opacity: 1 }, // Initial state
       {
-        x: "-130vw",
+        x: "-130vw", // Move off-screen to the left
+        opacity: 0,
         scrollTrigger: {
-          ...scrollTriggerOptions,
           trigger: textRef1.current,
+          start: "top center",
+          end: "+=3000",
+          scrub: 1.5,
+          onEnter: () => setIsFixed(true),
+          onLeave: () => setIsFixed(false),
+          onEnterBack: () => setIsFixed(true),
+          onLeaveBack: () => setIsFixed(true),
         },
       }
     );
 
-    // Animate text 2
+    // Text animation for textRef2 (moves right)
     gsap.fromTo(
       textRef2.current,
-      { x: "0vw", immediateRender: false }, // Start off-screen
+      { x: "0vw", opacity: 1 }, // Initial state
       {
-        x: "130vw",
+        x: "130vw", // Move off-screen to the right
+        opacity: 0,
         scrollTrigger: {
-          ...scrollTriggerOptions,
           trigger: textRef2.current,
+          start: "top center",
+          end: "+=3000",
+          scrub: 1.5,
+          onEnter: () => setIsFixed(true),
+          onLeave: () => setIsFixed(false),
+          onEnterBack: () => setIsFixed(true),
+          onLeaveBack: () => setIsFixed(true),
         },
       }
     );
+
+    // Background animation for bgRef1 (moves left)
+    gsap.fromTo(
+      bgRef1.current,
+      { x: "0vw" }, // Initial state
+      {
+        x: "-100vw", // Move off-screen to the left
+        scrollTrigger: {
+          trigger: bgRef1.current,
+          start: "top center",
+          end: "+=3000",
+          scrub: 1.5,
+        },
+      }
+    );
+
+    // Background animation for bgRef2 (moves right)
+    gsap.fromTo(
+      bgRef2.current,
+      { x: "0vw" }, // Initial state
+      {
+        x: "100vw", // Move off-screen to the right
+        scrollTrigger: {
+          trigger: bgRef2.current,
+          start: "top center",
+          end: "+=3000",
+          scrub: 1.5,
+        },
+      }
+    );
+
+    // Ensure ScrollTrigger is refreshed after setup
+    ScrollTrigger.refresh();
 
     return () => {
       // Clean up on unmount
@@ -98,16 +103,27 @@ const ScrollDemo = () => {
 
   return (
     <div className="relative">
-      <div ref={containerRef} className={`relative bg-white text-white`}>
-        {/* First Text Section with Background */}
-        <div
-          className={`fixed w-full h-screen flex justify-center items-center pointer-events-none z-10`}
-        >
-          {/* <div ref={bgRef1} className={`inset-0 bg-black z-20 `}></div>
-          <div ref={bgRef2} className={`inset-0 bg-black z-10 `}></div> */}
+      <div ref={containerRef} className="relative bg-white text-white">
+        {/* Main Section */}
+        <div className="fixed w-full h-screen flex justify-center items-center pointer-events-none z-10">
+          {/* Background Layers */}
+          <div
+            ref={bgRef1}
+            className={`absolute inset-0 bg-black z-10 ${
+              isFixed ? "fixed" : "relative"
+            }`}
+          ></div>
+          <div
+            ref={bgRef2}
+            className={`absolute inset-0 bg-black z-9 ${
+              isFixed ? "fixed" : "relative"
+            }`}
+          ></div>
+
+          {/* Text */}
           <div
             ref={textRef1}
-            className={`absolute md:text-9xl sm:text-3xl font-bold text-black whitespace-nowrap z-40 ${
+            className={`absolute md:text-9xl sm:text-3xl font-bold text-white whitespace-nowrap z-20 ${
               isFixed ? "fixed" : "relative"
             }`}
           >
@@ -116,7 +132,7 @@ const ScrollDemo = () => {
 
           <div
             ref={textRef2}
-            className={`absolute md:text-9xl sm:text-3xl font-bold text-black whitespace-nowrap z-40 ${
+            className={`absolute md:text-9xl sm:text-3xl font-bold text-white whitespace-nowrap z-20 ${
               isFixed ? "fixed" : "relative"
             }`}
           >
