@@ -143,7 +143,7 @@ function App() {
                   />
                 </div>
 
-                <div className="w-[70%] hidden md:block">
+                <div className="w-[70%] md:block max-600:hidden">
                   <ul className="flex justify-center ">
                     {navLists?.map((n, index) => (
                       <li key={index}>
@@ -152,7 +152,7 @@ function App() {
                           onClick={(e) =>
                             handleScrollToSection(e, n.toLowerCase())
                           }
-                          className=" hover:underline mx-5 underline-offset-8 cursor-pointer font-opensans font-bold "
+                          className=" hover:underline mx-5 underline-offset-8 cursor-pointer font-opensans font-bold dark:text-white"
                         >
                           {n}
                         </a>

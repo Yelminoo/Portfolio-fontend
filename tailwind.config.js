@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        "max-600": { max: "600px" }, // Custom breakpoint for max-width of 600px
+        "max-600": { max: "640px" }, // Custom breakpoint for max-width of 600px
       },
       fontFamily: {
         Josefinsans: ["Josefin Sans", "sans-serif"],
