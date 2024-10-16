@@ -18,53 +18,57 @@ export const WebUIBox = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <div className="flex gap-20 items-center justify-center md:justify-normal flex-wrap md:flex-nowrap my-5 ">
+    <div className="w-screen flex justify-center">
+      <div className="flex gap-4 max-600:gap-0 items-center justify-center md:justify-normal flex-wrap md:flex-nowrap my-5 pr-4 w-full">
         <div
-          className={`showcase-box min-w-[300px]  w-2/4 min-h-12 bg-slate-200 dark:bg-transparent border-2 border-black hover:border-green-500 shadow-lg rounded-lg ${
+          className={`w-2/3 max-600:w-full mx-auto px-5 ${
             boxPosition === "right" ? "order-2" : ""
           }`}
         >
-          <div className=" border rounded-lg  glassmorphism ">
-            <div className="p-2 flex gap-2 items-center justify-between ">
-              <div className="flex gap-1">
-                <i
-                  className="fa-solid fa-circle"
-                  style={{ color: "#d62424" }}
-                ></i>
-                <i
-                  className="fa-solid fa-circle"
-                  style={{ color: "#f5e20f" }}
-                ></i>
-                <i
-                  className="fa-solid fa-circle"
-                  style={{ color: "#00e658" }}
-                ></i>
+          <div
+            className={`showcase-box max-600:w-full min-h-12 bg-slate-200 dark:bg-transparent border-2 border-black hover:border-green-500 shadow-lg rounded-lg `}
+          >
+            <div className=" border rounded-lg  glassmorphism ">
+              <div className="p-2 flex gap-1 items-center justify-between ">
+                <div className="flex gap-1">
+                  <i
+                    className="fa-solid fa-circle"
+                    style={{ color: "#d62424" }}
+                  ></i>
+                  <i
+                    className="fa-solid fa-circle"
+                    style={{ color: "#f5e20f" }}
+                  ></i>
+                  <i
+                    className="fa-solid fa-circle"
+                    style={{ color: "#00e658" }}
+                  ></i>
+                </div>
+                <div className="w-1/2 bg-white border rounded-md h-5"></div>
               </div>
-              <div className="w-1/2 bg-white border rounded-md h-5"></div>
-            </div>
-            <div
-              className="border rounded-lg m-2 overflow-hidden cursor-pointer"
-              onClick={() => {
-                setIsOpen((prev) => !prev);
-              }}
-            >
-              <img src={img} className="w-full " />
-            </div>
+              <div
+                className="border rounded-lg m-2 overflow-hidden cursor-pointer"
+                onClick={() => {
+                  setIsOpen((prev) => !prev);
+                }}
+              >
+                <img src={img} className="w-100 " />
+              </div>
 
-            <div className="p-2 flex items-center gap-5 overflow-hidden">
-              <i className="fa-solid fa-globe dark:text-white "></i>
-              <a href={link}>
-                <p className="whitespace-nowrap text-ellipsis overflow-hidden underline dark:text-white">
-                  {link}
-                </p>
-              </a>
+              <div className="p-2 flex items-center gap-5 max-600:gap-0 overflow-hidden">
+                <i className="fa-solid fa-globe text-black dark:text-white "></i>
+                <a href={link}>
+                  <p className="whitespace-nowrap text-2xl text-black text-ellipsis overflow-hidden underline dark:text-white">
+                    {link}
+                  </p>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="min-w-[320px] max-w-[600px]  w-1/2 h-auto">
-          <div>
+        <div className="min-w-[300px] max-w-[600px] m-auto w-1/2 h-auto">
+          <div className="px-5">
             <h3 className="text-3xl mb-5 dark:text-white font-bold">{title}</h3>
             <p className="text-lg dark:text-white text-gray-700 tracking-wider">
               {description}
@@ -77,7 +81,7 @@ export const WebUIBox = ({
       </div>
 
       <ProjectModalBox isOpen={isOpen} setIsOpen={setIsOpen} />
-    </>
+    </div>
   );
 };
 
@@ -93,9 +97,9 @@ export const AppUIBox = ({
 
   return (
     <>
-      <div className="flex gap-20 justify-center  md:justify-normal flex-wrap md:flex-nowrap  my-5 ">
+      <div className="flex gap-20 max-600:gap-0 justify-center  md:justify-normal md:flex-nowrap max-600:flex-wrap py-5 w-full">
         <div
-          className={`w-2/4 ${boxPosition === "right" ? "order-2" : ""} flex`}
+          className={`w-2/4 ${boxPosition === "right" ? "order-2" : ""} flex `}
         >
           <div
             className={`showcase-box w-[10rem] h-[20rem] fancy m-auto border-[4px] p-2 shadow-lg rounded-xl border-black}`}
@@ -145,9 +149,11 @@ export const AppUIBox = ({
             </div>
           </div>
         </div>
-        <div className="min-w-[320px]  w-1/2 h-auto">
-          <div>
-            <h3 className="text-3xl mb-5 dark:text-white font-bold">{title}</h3>
+        <div className="min-w-[320px] m-auto px-5 w-1/2 h-auto">
+          <div className="">
+            <h3 className="text-3xl mb-5 dark:text-white text-black font-bold">
+              {title}
+            </h3>
             <p className="text-lg dark:text-white text-gray-700 tracking-wider">
               {description}
             </p>
@@ -208,7 +214,7 @@ function ShowcaseBox() {
             " This portfolio project showcases the development of a comprehensive PTE English exam practice platform. Designed to assist students in preparing for the Pearson Test of English (PTE) exam, the platform offers a range of practice materials and mock tests ."
           }
           programmingIcon={
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-5 max-600:gap-0 items-center">
               <i
                 className="fa-brands fa-react fa-2xl"
                 style={{ color: "#74C0FC" }}

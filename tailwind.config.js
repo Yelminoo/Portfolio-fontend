@@ -4,6 +4,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      screens: {
+        "max-600": { max: "600px" }, // Custom breakpoint for max-width of 600px
+      },
       fontFamily: {
         Josefinsans: ["Josefin Sans", "sans-serif"],
         opensans: ["Open Sans", "sans-serif"],

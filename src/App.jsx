@@ -145,14 +145,14 @@ function App() {
 
                 <div className="w-[70%] hidden md:block">
                   <ul className="flex justify-center ">
-                    {navLists.map((n, index) => (
+                    {navLists?.map((n, index) => (
                       <li key={index}>
                         <a
                           href={"#" + n.toLowerCase()}
                           onClick={(e) =>
                             handleScrollToSection(e, n.toLowerCase())
                           }
-                          className=" hover:underline mx-5 underline-offset-8 cursor-pointer font-opensans font-bold"
+                          className=" hover:underline mx-5 underline-offset-8 cursor-pointer font-opensans font-bold "
                         >
                           {n}
                         </a>
@@ -169,7 +169,7 @@ function App() {
                     )}
                   </button>
                 </div>
-                <div className="relative sm:block md:hidden mr-4">
+                <div className="relative block md:hidden mr-4">
                   <button onClick={toggleSidebar} className="text-white">
                     <i className="fa-solid fa-bars "></i>
                   </button>
@@ -316,7 +316,6 @@ function App() {
         </section>
       </main>
 
-      <p>scroll snap component</p>
       <FormModalBox isOpen={isOpen} setIsOpen={setIsOpen} />
       <section
         className={`glassmorphism floating-ui ${
