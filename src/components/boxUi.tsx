@@ -90,7 +90,7 @@ export async function BoxRevealDemo() {
         <BoxReveal boxColor={"#5046e6"} duration={0.5}>
           <div className="mt-6">
             <div className=" text-gray-800">
-              <h5 className="dark:text-white">-&gt; Technical Expertise::</h5>
+              <h5 className="dark:text-white">-&gt; Technical Expertise:</h5>
 
               <div className=" pl-4">
                 <span className="font-semibold dark:text-white">
@@ -126,7 +126,7 @@ export async function BoxRevealDemo() {
         <BoxReveal boxColor={"#5046e6"} duration={0.5}>
           <div className="mt-6">
             <div className=" text-gray-800">
-              <h5 className="dark:text-white">-&gt; Team Player: :</h5>
+              <h5 className="dark:text-white">-&gt; Team Player: </h5>
 
               <div className=" pl-4">
                 <span className="font-semibold dark:text-white">
