@@ -14,7 +14,7 @@ export function RetroGridDemo() {
         <AvatarFallback>{DATA.initials}</AvatarFallback>
       </Avatar>
       <span className="pointer-events-none z-10 whitespace-pre-wrap bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-left text-7xl font-bold leading-none tracking-tighter text-transparent">
-        Hello I&apos;m <strong className="">Yel Min Oo</strong>
+        Hello I&apos;m <strong className="">Yel Min Oo </strong>
       </span>
 
       <GradualSpacing
