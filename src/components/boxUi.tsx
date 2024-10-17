@@ -147,10 +147,10 @@ export async function BoxRevealDemo() {
 
               <div className=" pl-4">
                 <span className="font-semibold dark:text-white">
-                  I enjoy tackling complex challenges, whether it's optimizing
-                  performance, ensuring cross-platform compatibility, or
-                  resolving tough bugs. My approach is to find elegant, scalable
-                  solutions that stand the test of time.
+                  I enjoy tackling complex challenges, whether it&apos;s
+                  optimizing performance, ensuring cross-platform compatibility,
+                  or resolving tough bugs. My approach is to find elegant,
+                  scalable solutions that stand the test of time.
                 </span>
               </div>
             </div>

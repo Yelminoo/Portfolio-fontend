@@ -141,7 +141,7 @@ export const ContactForm = () => {
   return (
     <div className="w-full h-full z-40 max-w-[600px] bg-gray-500/15 p-10 backdrop-blur-md animate-finite-pulse border-2 border-gray-300 rounded-lg">
       <h2 className="text-2xl text-center font-thin dark:text-white">
-        Let's get in <span className="font-semibold">Touch</span>
+        Let&apos;s get in <span className="font-semibold">Touch</span>
       </h2>
 
       <form onSubmit={handleSubmit(submitHandler)}>
