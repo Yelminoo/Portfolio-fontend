@@ -333,16 +333,16 @@ export const DATA = {
     },
     {
       title: "Flight booking form ",
-      href: "https://automatic.chat",
+      href: "https://flight-booking-frontend-nine.vercel.app/",
       dates: "April 2023 - March 2024",
       active: true,
       description:
-        "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
-      technologies: ["React js", "Tailwind", "Express", "Mongo DB"],
+        "Developed an flight booking system which foucs on security.For testing admin acount ,use admin@mail.com with admin123 for additional route access for flight add .",
+      technologies: ["React js", "Tailwind", "Stripe", "Express", "Mongo DB"],
       links: [
         {
           type: "Website",
-          href: "https://automatic.chat",
+          href: "https://flight-booking-frontend-nine.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
       ],

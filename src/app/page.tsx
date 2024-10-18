@@ -61,54 +61,76 @@ export default function Page() {
             ))}
           </div>
         </section> */}
-        <section id="education">
-          <div className="flex min-h-0 lg-max-w-[1800px] max-w-[80vw] mx-auto flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 7}>
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Education
+        <section
+          id="profession-skill"
+          className="py-5 pb-20 border-b min-h-[100vh]"
+        >
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1">
+                  Education & Technical Skills
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Academic achievements and practical expertise
+                </h2>
               </div>
-            </BlurFade>
-            {DATA.education.map((education, id) => (
-              <BlurFade
-                key={education.school}
-                delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-              >
-                <ResumeCard
-                  key={education.school}
-                  href={education.href}
-                  logoUrl={education.logoUrl}
-                  altText={education.school}
-                  title={education.school}
-                  subtitle={education.degree}
-                  period={`${education.start} - ${education.end}`}
-                />
+            </div>
+          </BlurFade>
+          <section id="education" className="mb-10">
+            <div className="flex min-h-0 lg-max-w-[1800px] max-w-[80vw] mx-auto flex-col gap-y-3">
+              <BlurFade delay={BLUR_FADE_DELAY * 7}>
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  Education
+                </div>
               </BlurFade>
-            ))}
-          </div>
-        </section>
-        <section id="skills bg-black">
-          <div className="flex min-h-0 lg-max-w-[1800px] max-w-[80vw] mx-auto flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 9}>
-              <h2 className="text-xl font-bold">Skills</h2>
-            </BlurFade>
-            <div className="flex flex-wrap gap-1">
-              {DATA.skills.map((skill, id) => (
+              {DATA.education.map((education, id) => (
                 <BlurFade
-                  key={skill.title}
-                  delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+                  key={education.school}
+                  delay={BLUR_FADE_DELAY * 8 + id * 0.05}
                 >
-                  <Badge key={skill.title} className="text-sm py-2 flex gap-2">
-                    <img
-                      className="rounded-full w-[2rem] h-[2rem] object-cover"
-                      alt="rel"
-                      src={skill.image}
-                    />
-                    {skill.title}
-                  </Badge>
+                  <ResumeCard
+                    key={education.school}
+                    href={education.href}
+                    logoUrl={education.logoUrl}
+                    altText={education.school}
+                    title={education.school}
+                    subtitle={education.degree}
+                    period={`${education.start} - ${education.end}`}
+                  />
                 </BlurFade>
               ))}
             </div>
-          </div>
+          </section>
+          <section id="skills bg-black " className="">
+            <div className="flex min-h-0 lg-max-w-[1800px] max-w-[80vw] mx-auto flex-col gap-y-3 ">
+              <BlurFade delay={BLUR_FADE_DELAY * 7}>
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  Skills
+                </div>
+              </BlurFade>
+              <div className="flex flex-wrap gap-1">
+                {DATA.skills.map((skill, id) => (
+                  <BlurFade
+                    key={skill.title}
+                    delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+                  >
+                    <Badge
+                      key={skill.title}
+                      className="text-sm py-2 flex gap-2"
+                    >
+                      <img
+                        className="rounded-full w-[2rem] h-[2rem] object-cover"
+                        alt="rel"
+                        src={skill.image}
+                      />
+                      {skill.title}
+                    </Badge>
+                  </BlurFade>
+                ))}
+              </div>
+            </div>
+          </section>
         </section>
         <section id="projects">
           <div className="space-y-12 w-full py-12">
@@ -121,7 +143,7 @@ export default function Page() {
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                     Check out my latest work
                   </h2>
-                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  <p className="text-muted-foreground font-light md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     I&apos;ve worked on a variety of projects, from simple
                     websites to complex web applications. Here are a few of my
                     favorites.

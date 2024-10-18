@@ -18,27 +18,27 @@ export function RetroGridDemo() {
       </span>
 
       <GradualSpacing
-        className="text-wrap text-left text-md font-bold -tracking-wide md:text-2xl "
+        className="text-wrap text-left text-md font-light -tracking-wide md:text-2xl "
         text="With expertise in both frontend and backend development,"
       />
       <RetroGrid />
       <GradualSpacing
-        className="text-wrap text-left text-md font-bold -tracking-wide md:text-2xl"
+        className="text-wrap text-left text-md font-light -tracking-wide md:text-2xl"
         text="I bring dynamic and robust web solutions to life. Whether "
       />
       <GradualSpacing
-        className="text-wrap text-left text-md font-bold -tracking-wide md:text-2xl"
+        className="text-wrap text-left text-md font-light -tracking-wide md:text-2xl"
         text="it's crafting seamless user experiences or building powerful server-side
        "
       />
 
       <GradualSpacing
-        className="text-wrap text-left text-md font-bold -tracking-wide md:text-2xl"
+        className="text-wrap text-left text-md font-light -tracking-wide md:text-2xl"
         text="applications, I leverage my skills in JavaScript and PHP to deliver
        "
       />
       <GradualSpacing
-        className="text-wrap text-left text-md font-bold -tracking-wide md:text-2xl"
+        className="text-wrap text-left text-md font-light -tracking-wide md:text-2xl"
         text="exceptional results. Let's create something amazing together.
        "
       />

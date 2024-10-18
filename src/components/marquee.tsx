@@ -11,7 +11,7 @@ const reviews = [
   },
   {
     name: "HTML5",
-    username: "85%",
+    username: "95%",
     img: "/html.png",
     progress: 85,
   },
@@ -29,19 +29,19 @@ const reviews = [
   },
   {
     name: "NODE JS",
-    username: "85%",
+    username: "80%",
     img: "/nodejs.png",
     progress: 85,
   },
   {
     name: "React",
-    username: "85%",
+    username: "90%",
     img: "/react.png",
     progress: 85,
   },
   {
     name: "PHP",
-    username: "85%",
+    username: "80%",
     img: "/php.png",
     progress: 85,
   },
@@ -59,13 +59,13 @@ const reviews = [
   },
   {
     name: "React Native",
-    username: "85%",
+    username: "75%",
     img: "/react-native.png",
     progress: 85,
   },
   {
     name: "Threejs",
-    username: "85%",
+    username: "50%",
     img: "/threejs-logo.png",
     progress: 85,
   },
