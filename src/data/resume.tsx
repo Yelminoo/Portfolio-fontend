@@ -23,7 +23,7 @@ export const DATA = {
     },
     {
       title: "JS",
-      image: "/js.png",
+      image: "/JS.png",
     },
     {
       title: "Typescript",

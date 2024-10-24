@@ -24,7 +24,7 @@ const reviews = [
   {
     name: "JS",
     username: "85%",
-    img: "/js.png",
+    img: "/JS.png",
     progress: 85,
   },
   {
