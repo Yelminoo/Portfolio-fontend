@@ -24,6 +24,12 @@ export default function Page() {
     // Initialize Microsoft Clarity with your project ID
     if (typeof window !== "undefined") {
       Clarity.init("qp62o29iir");
+      Clarity.identify(
+        "custom-id",
+        "custom-session-id",
+        "custom-page-id",
+        "friendly-name"
+      );
     }
   }, []);
   return (
