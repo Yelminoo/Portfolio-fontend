@@ -1,3 +1,4 @@
+"use client";
 import { RetroGridDemo } from "@/components/bg";
 import { BoxRevealDemo } from "@/components/boxUi";
 import { GradualSpacingDemo } from "@/components/gradualSpacing";
@@ -11,12 +12,20 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
+import Clarity from "@microsoft/clarity";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { ContactForm } from "../components/contact-form";
 const BLUR_FADE_DELAY = 0.04;
 import { Analytics } from "@vercel/analytics/react";
+import { useEffect } from "react";
 export default function Page() {
+  useEffect(() => {
+    // Initialize Microsoft Clarity with your project ID
+    if (typeof window !== "undefined") {
+      Clarity.init("qp62o29iir");
+    }
+  }, []);
   return (
     <>
       <Analytics />
@@ -186,8 +195,8 @@ export default function Page() {
                     Get in Touch
                   </h2>
                   <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Want to chat? Just shoot me a dm or send me a message via contact form .I&apos;ll respond
-                    whenever I can.
+                    Want to chat? Just shoot me a dm or send me a message via
+                    contact form .I&apos;ll respond whenever I can.
                   </p>
                   <ContactForm />
                 </div>
