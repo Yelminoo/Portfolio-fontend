@@ -23,7 +23,7 @@ export default function Page() {
   useEffect(() => {
     // Initialize Microsoft Clarity with your project ID
     if (typeof window !== "undefined") {
-      Clarity.init("qp62o29iir");
+      Clarity.init("qnx12sf2pv");
       Clarity.identify(
         "custom-id",
         "custom-session-id",
