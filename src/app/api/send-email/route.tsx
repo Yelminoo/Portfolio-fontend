@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-
+require("dotenv").config();
 // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -9,6 +9,9 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS, // Email password from environment variable
   },
 });
+
+console.log(process.env.EMAIL_USER);
+console.log(process.env.EMAIL_PASS, "email pass");
 
 // Verify transporter configuration
 transporter.verify((error, success) => {
