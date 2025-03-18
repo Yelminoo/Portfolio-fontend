@@ -20,6 +20,21 @@ const BLUR_FADE_DELAY = 0.04;
 import { Analytics } from "@vercel/analytics/react";
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    hbspt?: {
+      forms: {
+        create: (options: {
+          portalId: string;
+          formId: string;
+          region: string;
+          target: string;
+        }) => void;
+      };
+    };
+  }
+}
+
 const HubSpotForm = () => {
   useEffect(() => {
     const script = document.createElement("script");
