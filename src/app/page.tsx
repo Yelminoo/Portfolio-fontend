@@ -19,6 +19,35 @@ import { ContactForm } from "../components/contact-form";
 const BLUR_FADE_DELAY = 0.04;
 import { Analytics } from "@vercel/analytics/react";
 import { useEffect } from "react";
+
+import { useEffect } from "react";
+
+const HubSpotForm = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//js-na2.hsforms.net/forms/embed/v2.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.charset = "utf-8";
+    
+    script.onload = () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          portalId: "242302643",
+          formId: "d2ae0293-d913-4581-bced-111fdd579ff2",
+          region: "na2",
+          target: "#hubspotForm",
+        });
+      }
+    };
+
+    document.body.appendChild(script);
+  }, []); // Run only once when the component mounts
+
+  return <div id="hubspotForm"></div>; // Container where the form will be rendered
+};
+
+
 export default function Page() {
   useEffect(() => {
     // Initialize Microsoft Clarity with your project ID
@@ -210,6 +239,7 @@ export default function Page() {
             </div>
           </GridPatternDashed>
         </section>
+        <HubSpotForm/>
       </main>
     </>
   );
