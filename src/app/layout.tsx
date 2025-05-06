@@ -15,15 +15,16 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: "Yel Min Oo | Software Engineer",
+    template: `%s | Yel Min Oo | Software Engineer`,
   },
   description: DATA.description,
   openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
+    title: `Yel MIN OO | Software Engineer`,
+    description:
+      "Portfolio of Yel Min Oo, a Software Engineer specializing in web development.",
     url: DATA.url,
-    siteName: `${DATA.name}`,
+    siteName: `Portfolio of Yel Min Oo`,
     locale: "en_US",
     type: "website",
   },
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: `Yel Min Oo | Software Engineer`,
     card: "summary_large_image",
   },
   verification: {
@@ -53,7 +54,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <html lang="en" suppressHydrationWarning>
       <head>

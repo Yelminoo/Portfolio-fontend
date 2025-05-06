@@ -83,7 +83,7 @@ export default async function Blog({
             url: `${DATA.url}/blog/${post.slug}`,
             author: {
               "@type": "Person",
-              name: DATA.name,
+              name: "yelminoo",
             },
           }),
         }}
