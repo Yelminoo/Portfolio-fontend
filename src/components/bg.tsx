@@ -22,22 +22,29 @@ export function RetroGridDemo() {
         className="text-left text-sm font-light tracking-normal md:text-2xl break-words"
         text="With expertise in both frontend and backend development,"
       />
-      <RetroGrid />
       <GradualSpacing
         className="text-left text-sm font-light tracking-normal md:text-2xl break-words"
-        text="I bring dynamic and robust web solutions to life. Whether"
+        text="I bring dynamic and robust web solutions to life."
       />
       <GradualSpacing
         className="text-left text-sm font-light tracking-normal md:text-2xl break-words"
-        text="it's crafting seamless user experiences or building powerful server-side"
+        text="Whether it's crafting seamless user experiences"
       />
       <GradualSpacing
         className="text-left text-sm font-light tracking-normal md:text-2xl break-words"
-        text="applications, I leverage my skills in JavaScript and PHP to deliver"
+        text="or building powerful server-side applications,"
       />
       <GradualSpacing
         className="text-left text-sm font-light tracking-normal md:text-2xl break-words"
-        text="exceptional results. Let's create something amazing together."
+        text="I leverage my skills in JavaScript and PHP"
+      />
+      <GradualSpacing
+        className="text-left text-sm font-light tracking-normal md:text-2xl break-words"
+        text="to deliver exceptional results."
+      />
+      <GradualSpacing
+        className="text-left text-sm font-light tracking-normal md:text-2xl break-words"
+        text="Let's create something amazing together."
       />
     </div>
   );
