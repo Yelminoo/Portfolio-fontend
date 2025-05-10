@@ -67,12 +67,24 @@ export const DATA = {
       image: "/next-js.png",
     },
     {
+      title: "Python",
+      image: "/python.png",
+    },
+    {
       title: "My SQL",
       image: "/sql.png",
     },
     {
       title: "Mongo DB",
       image: "/mongo.png",
+    },
+    {
+      title: "Firebase",
+      image: "/firebase.png",
+    },
+    {
+      title: "Socket",
+      image: "/socket.png",
     },
     {
       title: "Bootstrap",
@@ -82,10 +94,23 @@ export const DATA = {
       title: "GIT",
       image: "/git.png",
     },
+    {
+      title: "BIGQUERY",
+      image: "/bigquery.png",
+    },
+    {
+      title: "POWER BI",
+      image: "/power_bi.png",
+    },
+
+    {
+      title: "Google Cloud Platform",
+      image: "/Google_cloud.png",
+    },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/CV.pdf", icon: NotebookIcon, label: "Resume" },
+    { href: "/My Resume.pdf", icon: NotebookIcon, label: "Resume" },
   ],
   contact: {
     email: "yelminoo2015@gmail.com",

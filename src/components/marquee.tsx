@@ -93,6 +93,36 @@ const reviews = [
     img: "/tailwind.png",
     progress: 85,
   },
+  {
+    name: "Python",
+    username: "70%",
+    img: "/python.png",
+    progress: 70,
+  },
+  {
+    name: "Power BI",
+    username: "85%",
+    img: "/power_bi.png",
+    progress: 85,
+  },
+  {
+    name: "Web Socket",
+    username: "70%",
+    img: "/socket.png",
+    progress: 70,
+  },
+  {
+    name: "Big Query",
+    username: "85%",
+    img: "/bigquery.png",
+    progress: 85,
+  },
+  {
+    name: "Firebase",
+    username: "80%",
+    img: "/firebase.png",
+    progress: 80,
+  },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
