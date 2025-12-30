@@ -110,7 +110,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/My Resume.pdf", icon: NotebookIcon, label: "Resume" },
+    { href: "/MyCV.pdf", icon: NotebookIcon, label: "Resume" },
   ],
   contact: {
     email: "yelminoo2015@gmail.com",
@@ -336,6 +336,42 @@ export const DATA = {
         },
       ],
       image: "/threejs-web.png",
+      video: "",
+    },
+     {
+      title: "Aurotrade Platform",
+      href: "https://www.aurotrade.org/",
+      dates: "Dec 2024 - Mar 2025",
+      active: true,
+      description:
+        "This platform, using the real time data to trade forex and crypto currency.",
+      technologies: ["React JS","Typescript", "Vanilla js","Tailwind","Express","Crypto API","Redis"],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.aurotrade.org/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/aurotrade.png",
+      video: "",
+    },
+     {
+      title: "Royisal Jewelry Manufacturing",
+      href: "https://www.royisal.com/",
+      dates: "Dec 2025 - Dec 2025",
+      active: true,
+      description:
+        "Maintain and update the website for Royisal Jewelry Manufacturing, ensuring a seamless connection with inhouse ERP system.",
+      technologies: ["React JS","Typescript", "Vanilla js","Tailwind","PHP","Wordpress","Odoo API"],
+      links: [
+        {
+          type: "Website",
+          href: "https://royisal.com/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/royisal.png",
       video: "",
     },
     {
