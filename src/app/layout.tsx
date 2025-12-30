@@ -1,10 +1,12 @@
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { FreelanceWidget } from "@/components/freelance-widget";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+// @ts-ignore - allow importing global css without type declarations
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -80,6 +82,7 @@ export default function RootLayout({
           <TooltipProvider delayDuration={0}>
             {children}
             <Navbar />
+            <FreelanceWidget />
           </TooltipProvider>
         </ThemeProvider>
       </body>
